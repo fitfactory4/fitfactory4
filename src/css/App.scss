@@ -1,0 +1,225 @@
+@import "./reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+$primary: #bbdc00;
+$secondary: #d6fb00;
+$dark: #191919;
+$secondary-dark: #161616;
+$light: #e3e3e3;
+$borderRoundRadius: 50px;
+$borderSquare: 16px;
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+::selection {
+  background-color: #2141e0;
+  color: $light;
+}
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  margin: 0;
+}
+body {
+  background-color: $dark;
+  width: 100%;
+  overflow-x: hidden !important;
+  font-family: "Kanit", sans-serif;
+  margin: 0;
+}
+img {
+  max-width: 100%;
+  margin: 0;
+}
+ul,
+li {
+  list-style: none;
+  outline: none;
+}
+a {
+  text-decoration: none;
+  outline: none;
+}
+// end global
+// scroll-ui
+html::-webkit-scrollbar {
+  width: 12px;
+}
+html::-webkit-scrollbar-thumb {
+  background-color: $primary;
+}
+html::-webkit-scrollbar-thumb:hover {
+  background-color: #7e9302;
+}
+html::-webkit-scrollbar-track {
+  border-left: 1.5px solid #7d930233;
+  background-color: #161616;
+}
+.scroll-btn {
+  display: none;
+}
+.scroll-btn-active {
+  display: flex;
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  animation: bounce 0.4s infinite alternate;
+  animation-iteration-count: 1;
+  transition: all 0.4s ease-in-out;
+}
+@keyframes bounce {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.scroll-img {
+  background: #fff566;
+  padding: 1.8rem 1.2rem;
+  bottom: 2rem;
+  right: 2.1rem;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  z-index: 100000;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 1s ease;
+}
+.scroll-img:hover {
+  transform: scale(1.15);
+  border-radius: 50px;
+  background-color: #dfd42f;
+}
+// end scroll-ui
+.header {
+  width: 100%;
+  background-color: $dark;
+  border-bottom: 2px solid #ffffff0a;
+  overflow: hidden;
+  position: fixed;
+  z-index: 1000;
+  padding: 2rem 0;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 93%;
+  margin: 0 auto;
+}
+.logo {
+  font-weight: 700;
+  z-index: 999;
+  font-size: 1.4rem;
+  color: $primary;
+  margin-top: 0.5px;
+}
+.logo-span {
+  color: $light;
+}
+.main-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main-menu .nav-item .nav-link {
+  color: $light;
+  text-transform: uppercase;
+  font-size: 0.92rem;
+  font-weight: 600;
+  margin-right: 2.75rem;
+  transition: all 0.15s ease-in;
+}
+.main-menu .nav-item .nav-link:hover {
+  color: $primary;
+}
+.last-li {
+  color: $primary !important;
+  border-left: 1px solid #ffffff21;
+  padding-left: 2.2rem;
+}
+.arrow-right-icon-div {
+  margin-left: -4rem;
+}
+.nav-right-arrow-svg {
+  padding-left: 2rem;
+  margin-top: 3px;
+  cursor: pointer;
+}
+.burger {
+  display: none;
+  z-index: 999;
+}
+.burger-svg {
+  cursor: pointer;
+}
+// start mobile-navbar
+@media (max-width: 992px) {
+  .nav {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  .nav-link {
+    margin-right: 0 !important;
+    font-style: italic;
+    font-size: 1.5rem !important;
+    padding-bottom: 2rem !important;
+  }
+  .d-none-main-menu {
+    display: none;
+  }
+  .main-menu-mobile {
+    background: $dark;
+    width: 100%;
+    top: 0;
+    max-width: 100%;
+    height: 100vh;
+    left: 0%;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 56%;
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-item {
+    padding-bottom: 3rem;
+  }
+  .burger {
+    display: block;
+  }
+  .cancel-div {
+    cursor: pointer;
+  }
+  .nav-right-arrow-svg {
+    display: none;
+  }
+  .last-li {
+    border-left: 0;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+}
+@media (max-height: 460px) {
+  .nav-item {
+    padding-bottom: 1rem;
+  }
+}
+@media (max-height: 280px) {
+  .nav-item a {
+    font-size: 1.1rem !important;
+  }
+}
+// end header
