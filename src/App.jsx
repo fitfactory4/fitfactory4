@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { Home, Contact, News, StartTrial } from "./pages";
+import { Home, Contact, News, StartTrial, Footer } from "./pages";
 import NavBar from "./pages/NavBar";
 
 export default function App() {
@@ -12,6 +12,7 @@ export default function App() {
         <Route path="/news" element={<News />}></Route>
         <Route path="/start-trial" element={<StartTrial />}></Route>
       </Routes>
+      <Footer />
     </>
   );
 }

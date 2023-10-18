@@ -4,3 +4,4 @@ export { News } from "./News";
 export { Pricing } from "./Pricing";
 export { StartTrial } from "./StartTrial";
 export { Trainers } from "./Trainers";
+export { Footer } from "./footer";

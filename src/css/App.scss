@@ -1147,3 +1147,435 @@ html::-webkit-scrollbar-track {
 }
 // end pricing section
 // start footer
+.footer {
+  margin-top: 10rem;
+  padding-bottom: 5rem;
+}
+.leaflet-popup {
+  bottom: 7px !important;
+}
+.leaflet-popup-content {
+  bottom: 7px !important;
+  width: 217px !important;
+}
+.leaflet-popup-content-wrapper {
+  background-color: $dark !important;
+}
+.leaflet-popup-tip {
+  background-color: $dark !important;
+}
+.pop-up-text {
+  display: flex;
+  align-items: center;
+  color: $primary;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.pop-up-text span {
+  margin-left: 1rem;
+}
+.social-icon {
+  margin-bottom: 7rem;
+}
+.footer-top p {
+  text-align: left;
+  color: $light;
+  line-height: 2.5;
+  font-size: 1.3rem;
+  font-weight: 300;
+  transition: all 0.2s ease;
+}
+.footer-left,
+.footer-right {
+  text-align: left;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  max-width: 75%;
+  margin: 0 auto;
+}
+.social-media-top {
+  background: $light;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.social-child-icon {
+  filter: brightness(0.7);
+  height: 45.5vh;
+  width: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  display: block;
+}
+.social-child-icon:hover {
+  transform: scale(0.9);
+  border-radius: $borderSquare;
+  border: 10px solid $primary;
+  z-index: 2;
+}
+.insta-icon {
+  width: 3.4rem;
+  margin-right: 1.7rem;
+}
+.footer-p-social {
+  font-size: 3rem;
+  font-weight: 800;
+  color: $dark;
+}
+.social-icon {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.footer-logo {
+  font-size: 3rem;
+  color: $primary;
+  font-weight: 800;
+  font-style: italic;
+  margin-bottom: 2.5rem;
+}
+.footer-icon {
+  cursor: pointer;
+  width: 35px;
+  transition: all 0.3s ease;
+}
+.footer-icon:hover {
+  transform: scale(1.1);
+  opacity: 0.6;
+}
+.footer-icon-middle {
+  margin: 0 3rem;
+}
+.footer-left-title,
+.footer-right-title {
+  color: $light;
+  font-weight: 700;
+  font-size: 2.6rem;
+  border-bottom: 1px solid #ffffff1c;
+  padding-bottom: 1.5rem;
+  font-style: italic;
+}
+.footer-right-flex,
+.footer-left-flex {
+  margin-top: 2rem;
+}
+.footer-right p:hover,
+.footer-left p:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+@media (max-width: 992px) {
+  .social-icon {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+  }
+  .footer-p-social {
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 800px) {
+  .insta-icon {
+    width: 2.4rem;
+  }
+  .footer-p-social {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 750px) {
+  .social-media-top {
+    display: flex;
+    flex-direction: column;
+  }
+  .insta-icon {
+    width: 3rem;
+    margin-bottom: 2rem;
+    margin-right: 0;
+  }
+  .footer-p-social {
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 1125px) {
+  .footer-left-title,
+  .footer-right-title {
+    font-size: 2rem;
+  }
+  .footer-middle {
+    margin: 8rem 0;
+  }
+  .footer-logo {
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 992px) {
+  .footer-top {
+    display: block;
+  }
+  .footer-middle {
+    margin: 8rem 0;
+  }
+}
+@media (max-width: 1450px) {
+  .footer-top {
+    max-width: 90%;
+  }
+}
+// end footer
+// start contact-page >>>
+.contact {
+  position: relative;
+}
+.contact-top {
+  width: 100%;
+  height: 50vh;
+  position: relative;
+  background-color: #111111;
+}
+// global ^^^ .contact-page ქვემოთა კონტაქტის სიგრძესაც შეცვლისს!
+.contact-container-top {
+  max-width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  text-align: center;
+  grid-gap: 3rem;
+  align-items: center;
+  margin-top: 6rem;
+}
+.contact-info-text {
+  font-size: 2rem;
+  font-weight: 700;
+  color: $light;
+  margin: 1.3rem 0rem 1rem 0;
+}
+.contact-container-top p {
+  color: $light;
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+.contact-icon {
+  background-color: $primary;
+  border-radius: $borderSquare;
+  padding: 1.2rem;
+  width: 5.3rem;
+  margin-bottom: 1.5rem;
+}
+.contact-wrapper-box {
+  padding: 2.5rem;
+  box-shadow: #bbdc000e 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, #bbdc0017 0px -2px 6px 0px inset;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+  border-radius: $borderSquare;
+}
+.contact-wrapper-box:hover {
+  box-shadow: #bbdc0046 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  padding: 2.5rem;
+  transform: scale(1.04);
+}
+.message-icon {
+  width: 6rem;
+}
+.email-icon {
+  width: 6rem;
+}
+.contact-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  color: $light;
+  font-weight: 800;
+  font-style: italic;
+  margin-top: 1rem;
+}
+.contact-block {
+  width: 1.4rem;
+  height: 1.4rem;
+  display: block;
+  border-radius: 50px;
+  margin-right: 2rem;
+  background-color: $primary;
+}
+.contact-title {
+  display: flex;
+  align-items: center;
+  font-size: 4rem;
+  color: $light;
+  font-weight: 800;
+  font-style: italic;
+  margin-top: 2rem;
+}
+// end contact-page
+.contact-sign {
+  margin: 20rem 0;
+}
+.contact-sign-top {
+  max-width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  align-items: center;
+  position: relative;
+}
+.contact-sign-right h3 {
+  font-size: 4.5rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: $light;
+  margin-bottom: 2rem;
+}
+.contact-flex input {
+  border: 2px solid #e3e3e31b;
+  border-radius: $borderSquare;
+  margin: 1rem 0;
+  background: transparent;
+  padding: 1rem;
+  color: $light;
+  font-size: 0.9rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  outline: none;
+  transition: all 0.4s ease;
+}
+.contact-flex input:hover {
+  border: 2px solid $light;
+}
+.contact-sign-right {
+  background-color: #111111;
+  height: 120%;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+  padding: 0 5rem;
+  border-radius: 0 16px 16px 0px;
+  background: linear-gradient(#161616, #161616) padding-box,
+    linear-gradient(var(--angle), transparent, $primary) border-box;
+  animation: 30s rotate linear infinite;
+  border: 3px solid transparent !important;
+}
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.contact-main-image {
+  border-radius: 16px 0 0 16px;
+}
+.contact-flex {
+  display: flex;
+  flex-direction: column;
+}
+textarea {
+  min-width: 80%;
+  margin-top: 1rem;
+  font-family: "Kanit", sans-serif;
+  text-transform: uppercase;
+  max-width: 100%;
+  max-height: 200px;
+  background: rgb(25, 25, 25);
+  border: none;
+  color: $light;
+  font-size: 1.2rem;
+  outline: none;
+  padding: 1.5rem;
+  border-radius: 16px;
+  height: 208px;
+  width: 566px;
+  font-weight: 700;
+  transition: 0.4s ease-in-out;
+  letter-spacing: 0.2px;
+  border: 2px solid #e3e3e31b;
+}
+textarea:hover {
+  border: 2px solid $light;
+}
+textarea::-webkit-scrollbar {
+  background-color: $secondary-dark;
+  width: 0.7rem;
+}
+textarea::-webkit-scrollbar-thumb {
+  background-color: $primary;
+  border-radius: $borderSquare;
+}
+.contact-form-btn {
+  background: $primary;
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: $dark;
+  justify-content: center;
+  display: flex;
+  margin-top: 1.6rem;
+  padding: 1.2rem 2rem;
+  border-radius: 16px;
+}
+// start contact-media
+@media (max-width: 1300px) {
+  .contact-sign-right h3 {
+    font-size: 3.5rem;
+  }
+  .contact-container-top {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+@media (max-width: 1063.33px) {
+  .contact-main-image {
+    width: 100%;
+    border-radius: 16px 16px 0 0;
+  }
+  .contact-sign-right {
+    border-radius: 0 0 16px 16px;
+  }
+  .contact-sign-right h3 {
+    font-size: 2.5rem;
+  }
+  .contact-flex input {
+    font-size: 0.8rem;
+  }
+  .contact-sign-top {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  }
+}
+@media (max-width: 992px) {
+  .contact-sign {
+    margin: 12rem 0;
+  }
+  .contact-sign-right {
+    padding: 0 2rem;
+  }
+  .contact-sign-top {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(388px, 1fr));
+  }
+}
+@media (max-width: 796px) {
+  .contact-sign-top {
+    grid-template-columns: repeat(auto-fit, minmax(319px, 1fr)) !important;
+  }
+  .contact-title {
+    font-size: 2.5rem;
+  }
+}
