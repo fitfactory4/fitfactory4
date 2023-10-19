@@ -67,6 +67,7 @@ html::-webkit-scrollbar-track {
   position: fixed;
   right: 2rem;
   bottom: 2rem;
+  z-index: 111111;
   animation: bounce 0.4s infinite alternate;
   animation-iteration-count: 1;
   transition: all 0.4s ease-in-out;
@@ -106,7 +107,7 @@ html::-webkit-scrollbar-track {
   border-bottom: 2px solid #ffffff0a;
   overflow: hidden;
   position: fixed;
-  z-index: 1000;
+  z-index: 1110000;
   padding: 2rem 0;
 }
 .nav {
@@ -1449,7 +1450,6 @@ html::-webkit-scrollbar-track {
   color: $light;
   font-size: 0.9rem;
   font-weight: 900;
-  text-transform: uppercase;
   outline: none;
   transition: all 0.4s ease;
 }
@@ -1492,7 +1492,6 @@ textarea {
   min-width: 80%;
   margin-top: 1rem;
   font-family: "Kanit", sans-serif;
-  text-transform: uppercase;
   max-width: 100%;
   max-height: 200px;
   background: rgb(25, 25, 25);

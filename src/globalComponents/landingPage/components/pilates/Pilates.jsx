@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 import squareImg from "../../../../images/squareImg.png";
 
 export const Pilates = () => {
@@ -13,7 +13,7 @@ export const Pilates = () => {
             Supported by a network of early advocates, contributors, and
             champions. We are gladly helping companies to get started.
           </p>
-          <Link to="/news" className="pilates-link">
+          <Link smooth to="/news#" className="pilates-link">
             SEE DETAILS
           </Link>
         </div>

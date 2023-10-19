@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 import { useState } from "react";
 import { Burger, ArrowRightIcon, Cancel } from "../globalComponents";
 
@@ -13,32 +13,37 @@ export default function NavBar() {
     {
       className: "nav-link",
       to: "/",
+      href: "#",
+      homepage: true,
       name: "Home",
     },
     {
       className: "nav-link",
-      to: "",
+      to: "/",
       href: "#trainers",
       name: "Trainers",
     },
     {
       className: "nav-link",
-      to: "",
+      to: "/",
       href: "#pricing",
       name: "Pricing",
     },
     {
       className: "nav-link",
+      href: "#",
       to: "/news",
       name: "News",
     },
     {
       className: "nav-link",
+      href: "#",
       to: "/contact",
       name: "Contact",
     },
     {
       className: "nav-link last-li",
+      href: "#",
       to: "/start-trial",
       name: "Start-Trial",
     },
@@ -46,7 +51,7 @@ export default function NavBar() {
   return (
     <header className="header">
       <nav className="nav">
-        <Link to="/" className="logo">
+        <Link smooth to="/#" className="logo">
           FIT<span className="logo-span">FACTORY</span>
         </Link>
         <ul
@@ -58,23 +63,14 @@ export default function NavBar() {
         >
           {links.map((link, index) => (
             <li className="nav-item" key={index}>
-              {link.to === "" ? (
-                <a
-                  className="nav-link"
-                  href={link.href}
-                  onClick={() => toggleMenu()}
-                >
-                  {link.name}
-                </a>
-              ) : (
-                <Link
-                  className={link.className}
-                  to={link.to}
-                  onClick={() => toggleMenu()}
-                >
-                  {link.name}
-                </Link>
-              )}
+              <Link
+                className={link.className}
+                smooth
+                to={link.to + link.href}
+                onClick={() => toggleMenu()}
+              >
+                {link.name}
+              </Link>
             </li>
           ))}
           <Link to={"/start-trial"}>

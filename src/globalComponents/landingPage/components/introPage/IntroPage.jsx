@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 import { ScrollArrow } from "../../../ScrollArrow";
 import landingImg from "../../../../images/landingImg.png";
 export const IntroPage = () => {
@@ -17,7 +17,7 @@ export const IntroPage = () => {
             and grow your Mixed Martial Arts academy online.
           </p>
           <div className="btn-flex">
-            <Link to="/start-trial" className="btn btn1 button-49">
+            <Link smooth to="/start-trial#" className="btn btn1 button-49">
               JOIN US
             </Link>
             <a href="#about-us" className="btn btn2">

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { HashLink as Link } from "react-router-hash-link";
 import scrollArrow from "../images/scrollArrow.svg";
 
 export const ScrollArrow = () => {
@@ -19,14 +20,14 @@ export const ScrollArrow = () => {
 
   return (
     <div className={arrowActive ? "scroll-btn-active" : "scroll-btn"}>
-      <a href="#home">
+      <Link smooth to="#">
         <img
           src={scrollArrow}
           alt="scrollArrow-svg"
           className="scroll-img"
           title="scroll-top"
         />
-      </a>
+      </Link>
     </div>
   );
 };

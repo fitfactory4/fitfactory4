@@ -42,24 +42,36 @@ export const Footer = () => {
         <div className="footer-middle">
           <h4 className="footer-logo">FITFACTORY</h4>
           <div className="footer-middle-flex">
-            <img
-              className="footer-icon"
-              src={instaFooter}
-              alt="insta-svg"
-              title="instagram"
-            />
-            <img
-              className="footer-icon footer-icon-middle"
-              src={instaFooter2}
-              alt="fb-svg"
-              title="facebook"
-            />
-            <img
-              className="footer-icon"
-              src={instaFooter3}
-              alt="tik-tok-svg"
-              title="tik-tok"
-            />
+            <a
+              href="https://www.instagram.com/fitfactory_official_georgia/"
+              target="_blank"
+            >
+              <img
+                className="footer-icon"
+                src={instaFooter}
+                alt="insta-svg"
+                title="instagram"
+              />
+            </a>
+            <a
+              href="https://www.facebook.com/profile.php?id=100085191204410"
+              target="_blank"
+            >
+              <img
+                className="footer-icon footer-icon-middle"
+                src={instaFooter2}
+                alt="fb-svg"
+                title="facebook"
+              />
+            </a>
+            <a href="#">
+              <img
+                className="footer-icon"
+                src={instaFooter3}
+                alt="tik-tok-svg"
+                title="tik-tok"
+              />
+            </a>
           </div>
         </div>
         <div className="footer-right">

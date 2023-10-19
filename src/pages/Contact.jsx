@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
 import Location from "../images/location.png";
 import emailBox from "../images/email-box.png";
 import messageIcon from "../images/message-icon.png";
 import contactMainImg from "../images/contact-mainImg.png";
+import { ScrollArrow } from "../globalComponents";
+
 export const Contact = () => {
   return (
     <section className="contact" id="contact">
@@ -59,42 +60,43 @@ export const Contact = () => {
           </div>
           <div className="contact-sign-right">
             <h3>SEND US MESSAGE:</h3>
-            <div className="contact-flex">
+            <form
+              action="https://formsubmit.co/00a206a35d4e3ef32ca5ec473880300d"
+              method="POST"
+              className="contact-flex"
+            >
               <input
                 id="username"
                 type="text"
-                name="username"
+                name="Name"
                 placeholder="* Full Name"
                 required
+                maxLength={40}
               />
               <input
                 id="mail-input"
-                type="text"
-                name="email"
+                type="email"
+                name="Email"
                 placeholder="* Your Email"
-                required
-              />
-              <input
-                id="TrainerSelector"
-                type="text"
-                name="username"
-                placeholder="* Select Trainer"
                 required
               />
               <textarea
                 placeholder="* Message"
-                name=""
+                name="Message"
                 id=""
                 cols="30"
                 rows="10"
+                required
+                maxLength={200}
               ></textarea>
-              <Link to="/start-trial" className="contact-form-btn">
-                SUBMIT
-              </Link>
-            </div>
+              <button type="submit" className="contact-form-btn">
+                Send
+              </button>
+            </form>
           </div>
         </div>
       </div>
+      <ScrollArrow />
     </section>
   );
 };

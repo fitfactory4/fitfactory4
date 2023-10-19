@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 import checkIicon from "../../../../images/check-icon.png";
 import yellowCheckIcon from "../../../../images/yellow-checkIcon.png";
 
@@ -27,7 +27,7 @@ export const Pricing = () => {
             <img className="price-svg" src={checkIicon} alt="check-icon-svg" />
             <p className="price-text">Adjustable schedule </p>
           </div>
-          <Link to="/start-trial" className="price-btn">
+          <Link smooth to="/start-trial#" className="price-btn">
             SEE DETAILS
           </Link>
         </div>
@@ -48,7 +48,7 @@ export const Pricing = () => {
             <img className="price-svg" src={checkIicon} alt="check-icon-svg" />
             <p className="price-text">Adjustable schedule </p>
           </div>
-          <Link to="/start-trial" className="price-btn">
+          <Link smooth to="/start-trial#" className="price-btn">
             SEE DETAILS
           </Link>
         </div>
@@ -81,7 +81,7 @@ export const Pricing = () => {
             />
             <p className="price-text">Adjustable schedule </p>
           </div>
-          <Link to="/start-trial" className="price-btn last-price-btn">
+          <Link smooth to="/start-trial#" className="price-btn last-price-btn">
             SEE DETAILS
           </Link>
         </div>
