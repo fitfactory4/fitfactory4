@@ -47,7 +47,6 @@ export const Contact = () => {
           </div>
         </div>
       </div>
-      {/* end location-message-email section */}
 
       <div className="contact-sign">
         <div className="contact-sign-top">

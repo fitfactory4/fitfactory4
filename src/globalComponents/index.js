@@ -5,3 +5,8 @@ export { LandingPage } from "./landingPage";
 export { Muscle } from "./Muscle";
 export { ScrollArrow } from "./ScrollArrow";
 export { InfoIconBox } from "./InfoIconBox";
+export { UserIcon } from "./UserIcon";
+export { SelectIcon } from "./SelectIcon";
+export { Calendar } from "./Calendar";
+export { CalendarCancel } from "./CalendarCancel";
+export { Phone } from "./Phone";
