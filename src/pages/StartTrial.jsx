@@ -1,7 +1,4 @@
 import startTrialImage from "../images/start-trial-image.png";
-import { useForm } from "react-hook-form";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
 import {
   Calendar,
   ScrollArrow,
@@ -42,27 +39,13 @@ export const StartTrial = () => {
     setDateError(false);
   };
 
-  const schema = yup.object().shape({
-    Username: yup.string().required(),
-    PhoneNumber: yup.number().positive().integer().required(),
-  });
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
-
-  const onSubmit = (data) => {
-    console.log(data);
-    // if (selectedDate === null) {
-    //   setDateError(true);
-    // } else {
-    //   e.target.submit();
-    //   setDateError(false);
-    // }
+  const onSubmit = (e) => {
+    if (selectedDate === null) {
+      setDateError(true);
+    } else {
+      e.target.submit();
+      setDateError(false);
+    }
   };
 
   return (
@@ -82,31 +65,31 @@ export const StartTrial = () => {
           </p>
 
           <form
-            onSubmit={handleSubmit(onSubmit)}
-            // action="https://formsubmit.co/00a206a35d4e3ef32ca5ec473880300d"
-            // method="POST"
+            onSubmit={onSubmit}
+            action="https://formsubmit.co/00a206a35d4e3ef32ca5ec473880300d"
+            method="POST"
           >
             <div className="trial-flex">
               <div className="trial-flex-card trial-flex-card-1">
                 <input
                   id="username-input"
                   type="text"
-                  {...register("Username")}
+                  name="Username"
                   placeholder="* Full Name"
                   maxLength={45}
                 />
                 <UserIcon />
-                <p>{errors.Username?.message}</p>
                 <input
                   id="phoneNumber-input"
-                  type="text"
-                  {...register("PhoneNumber")}
+                  type="number"
+                  name="Phone Number"
                   placeholder="* Phone Number"
                   maxLength={45}
+                  inputMode="numeric"
+                  className="phoneNumber-input-wrapper"
                   // required
                 />
                 <Phone />
-                <p>{errors.PhoneNumber?.message}</p>
               </div>
               <div className="trial-flex-card trial-flex-card-2">
                 <label htmlFor="datepicker" className="datepicker-placeholder">
