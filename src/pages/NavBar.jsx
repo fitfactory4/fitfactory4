@@ -32,8 +32,8 @@ export default function NavBar() {
     {
       className: "nav-link",
       href: "#",
-      to: "/news",
-      name: "News",
+      to: "/blogs",
+      name: "Blogs",
     },
     {
       className: "nav-link",

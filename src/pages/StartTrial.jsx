@@ -10,13 +10,65 @@ import {
 import Datepicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
+import { useEffect } from "react";
 
 export const StartTrial = () => {
   const [selectedDate, setSelectedDate] = useState(null);
+  const [fullName, setFullName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+
+  const [submit, setSubmit] = useState(false);
+  const [isPlaceHolderActive, setIsPlaceHolderActive] = useState(true);
+
+  const [trainerPrice, setTrainerPrice] = useState(0);
+  const [trialPrice, setTrialPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const [dateError, setDateError] = useState(false);
+  const [nameRequiredError, setNameRequiredError] = useState(false);
+  const [numberRequiredError, setNumberRequiredError] = useState(false);
 
   const [isCalendarActive, setIsCalendarActive] = useState(false);
+
+  const selectOptions = {
+    traners: [
+      {
+        value: "No Trainer",
+        price: " (0$)",
+      },
+      {
+        value: "Trainer 1",
+        price: " (30$)",
+      },
+      {
+        value: "Trainer 2",
+        price: " (40$)",
+      },
+      {
+        value: "Trainer 3",
+        price: " (50$)",
+      },
+    ],
+
+    trial: [
+      {
+        value: "Trial 1",
+        price: " (50$)",
+      },
+      {
+        value: "Trial 2",
+        price: " (60$)",
+      },
+      {
+        value: "Trial 3",
+        price: " (70$)",
+      },
+      {
+        value: "Trial 4",
+        price: " (80$)",
+      },
+    ],
+  };
 
   const handleCalendarOpen = () => {
     const openCalendar = document.querySelector(".react-datepicker-popper");
@@ -37,15 +89,61 @@ export const StartTrial = () => {
   const handleDateChange = (date) => {
     setSelectedDate(date);
     setDateError(false);
+    if ((fullName !== "") & (phoneNumber !== null)) {
+      setSubmit(true);
+    }
   };
 
-  const onSubmit = (e) => {
-    if (selectedDate === null) {
-      setDateError(true);
-    } else {
-      e.target.submit();
-      setDateError(false);
+  const handleUserNameChange = (name) => {
+    setFullName(name.target.value);
+    setNameRequiredError(false);
+    if ((phoneNumber !== "") & (selectedDate !== null)) {
+      setSubmit(true);
     }
+  };
+
+  const handlePhoneNumberChange = (number) => {
+    setPhoneNumber(number.target.value);
+    setNumberRequiredError(false);
+    if ((fullName !== "") & (selectedDate !== null)) {
+      setSubmit(true);
+    }
+  };
+
+  const onClick = () => {
+    selectedDate === null ? setDateError(true) : setDateError(false);
+    fullName === "" ? setNameRequiredError(true) : setNameRequiredError(false);
+    phoneNumber === ""
+      ? setNumberRequiredError(true)
+      : setNumberRequiredError(false);
+  };
+
+  const setPlaceHolder = () => {
+    setIsPlaceHolderActive(false);
+  };
+
+  useEffect(() => {
+    var dateDay = document.querySelector(".react-datepicker__day");
+
+    if (dateDay !== null) {
+      dateDay.onClick = setPlaceHolder(false);
+    }
+
+    setTotalPrice(Number(trainerPrice) + Number(trialPrice));
+  });
+
+  const handleTrainerChange = () => {
+    let selectTrainer = document.getElementById("select-trainer").value;
+    let trainerPrice = selectTrainer.split("(")[1].replace("$)", "");
+
+    setTrainerPrice(trainerPrice);
+  };
+
+  const handleTrialChange = () => {
+    let selectTrial = document.getElementById("select-trial").value;
+    let trialPrice = selectTrial.split("(")[1].replace("$)", "");
+
+    setTrialPrice(trialPrice);
   };
 
   return (
@@ -65,7 +163,6 @@ export const StartTrial = () => {
           </p>
 
           <form
-            onSubmit={onSubmit}
             action="https://formsubmit.co/00a206a35d4e3ef32ca5ec473880300d"
             method="POST"
           >
@@ -75,25 +172,36 @@ export const StartTrial = () => {
                   id="username-input"
                   type="text"
                   name="Username"
+                  onChange={handleUserNameChange}
                   placeholder="* Full Name"
+                  minLength={7}
                   maxLength={45}
+                  required
                 />
                 <UserIcon />
+                {nameRequiredError && (
+                  <div className="name-error">Name is required</div>
+                )}
                 <input
                   id="phoneNumber-input"
-                  type="number"
+                  type="text"
                   name="Phone Number"
-                  placeholder="* Phone Number"
-                  maxLength={45}
-                  inputMode="numeric"
+                  onChange={handlePhoneNumberChange}
+                  placeholder="* Your Number"
+                  minLength={9}
                   className="phoneNumber-input-wrapper"
-                  // required
+                  required
                 />
                 <Phone />
+                {numberRequiredError && (
+                  <div className="number-error">Number is required</div>
+                )}
               </div>
               <div className="trial-flex-card trial-flex-card-2">
                 <label htmlFor="datepicker" className="datepicker-placeholder">
-                  <p className="datepicker-p">* Start Date</p>
+                  {isPlaceHolderActive && (
+                    <p className="datepicker-p">* Start Date</p>
+                  )}
                   <Datepicker
                     selected={selectedDate}
                     onChange={handleDateChange}
@@ -108,35 +216,61 @@ export const StartTrial = () => {
                   </span>
                 </label>
                 {dateError && (
-                  <div className="error-text">Date is required</div>
+                  <div className="date-error">Date is required</div>
                 )}
               </div>
               <div className="trial-container">
                 <div className="trial-select-flex trial-selector-1">
-                  <select className="trial-trainer-selector" name="Trainer">
-                    <option value="No Trainer">No Trainer</option>
-                    <option value="Trainer 1">Trainer 1</option>
-                    <option value="Trainer 2">Trainer 2</option>
-                    <option value="Trainer 3">Trainer 3</option>
+                  <select
+                    id="select-trainer"
+                    onChange={handleTrainerChange}
+                    className="trial-trainer-selector"
+                    name="Trainer"
+                    required
+                  >
+                    <option value="">Please Select An Option</option>
+                    {selectOptions.traners.map((trainer, index) => (
+                      <option key={index} value={trainer.value + trainer.price}>
+                        {trainer.value + trainer.price}
+                      </option>
+                    ))}
                   </select>
                   <SelectIcon />
                 </div>
                 <div className="trial-select-flex">
-                  <select className="trial-trainer-selector" name="Package">
-                    <option value="trial 1">trial 1</option>
-                    <option value="trial 2">trial 2</option>
-                    <option value="trial 3">trial 3</option>
-                    <option value="trial 4">trial 4</option>
+                  <select
+                    id="select-trial"
+                    onChange={handleTrialChange}
+                    className="trial-trainer-selector"
+                    name="Package"
+                    required
+                  >
+                    <option value="">Please Select Trial</option>
+                    {selectOptions.trial.map((trial, index) => (
+                      <option key={index} value={trial.value + trial.price}>
+                        {trial.value + trial.price}
+                      </option>
+                    ))}
                   </select>
                   <SelectIcon />
                 </div>
               </div>
               <div className="trial-btn-container">
-                <button type="submit" className="trial-btn trial-btn-1">
-                  SUBMIT
-                </button>
+                {!submit ? (
+                  <p
+                    onClick={onClick}
+                    className="trial-btn trial-btn-1 trial-btn-p"
+                  >
+                    SUBMIT
+                  </p>
+                ) : (
+                  <button type="submit" className="trial-btn trial-btn-1">
+                    SUBMIT
+                  </button>
+                )}
+
                 <a href="#" className="trial-btn trial-btn-2">
-                  TOTAL: 110$
+                  TOTAL : {totalPrice} $
                 </a>
               </div>
             </div>

@@ -1,1 +1,1 @@
-export { NewsPopUp } from "./NewsPopUp";
+export { BlogPost } from "./BlogPost";

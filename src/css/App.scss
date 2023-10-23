@@ -314,6 +314,11 @@ html::-webkit-scrollbar-track {
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 // container-right mobile
+@media (max-width: 1700px) {
+  .landing-img {
+    width: 77%;
+  }
+}
 @media (max-width: 1580px) {
   .landing-img {
     width: 80%;
@@ -741,6 +746,14 @@ html::-webkit-scrollbar-track {
     font-size: 2rem;
   }
 }
+@media (max-width: 290px) {
+  .info-top {
+    padding: 2rem;
+  }
+  .info-wrapper-top {
+    grid-template-columns: repeat(auto-fill, minmax(219px, 1fr));
+  }
+}
 // end about
 // start pilates
 .pilates {
@@ -857,6 +870,11 @@ html::-webkit-scrollbar-track {
   .pilates-link {
     font-size: 1.1rem;
     padding: 0.5rem 1.8rem;
+  }
+}
+@media (max-width: 290px) {
+  .pilates {
+    padding: 2rem;
   }
 }
 // end pilates
@@ -1048,6 +1066,11 @@ html::-webkit-scrollbar-track {
     margin-top: 2rem;
   }
 }
+@media (max-width: 290px) {
+  .carousel {
+    max-width: 95%;
+  }
+}
 // end slider
 // start pricing section
 .main-pricing {
@@ -1157,6 +1180,22 @@ html::-webkit-scrollbar-track {
   .pricing-top {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(343px, 1fr));
+  }
+}
+@media (max-width: 340px) {
+  .info-top {
+    padding: 2rem;
+  }
+  .pricing-top {
+    grid-template-columns: repeat(auto-fit, minmax(286px, 1fr));
+  }
+  .info-wrapper-top {
+    grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+  }
+}
+@media (max-width: 290px) {
+  .pricing-top {
+    grid-template-columns: repeat(auto-fit, minmax(267px, 1fr));
   }
 }
 // end pricing section
@@ -1279,7 +1318,7 @@ html::-webkit-scrollbar-track {
 @media (max-width: 992px) {
   .social-icon {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(267px, 1fr));
   }
   .footer-p-social {
     font-size: 2.5rem;
@@ -1583,15 +1622,50 @@ textarea::-webkit-scrollbar-thumb {
 }
 @media (max-width: 796px) {
   .contact-sign-top {
-    grid-template-columns: repeat(auto-fit, minmax(319px, 1fr)) !important;
+    grid-template-columns: repeat(auto-fit, minmax(282px, 1fr)) !important;
   }
   .contact-title {
     font-size: 2.5rem;
   }
 }
+@media (max-width: 360px) {
+  .contact-container-top {
+    grid-template-columns: repeat(auto-fit, minmax(273px, 1fr));
+  }
+}
 @media (max-height: 415px) {
   .contact-top {
     height: 80vh;
+  }
+}
+@media (max-width: 310px) {
+  .contact-title {
+    font-size: 2rem;
+  }
+  .contact-block {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  .contact-container-top {
+    grid-template-columns: repeat(auto-fit, minmax(247px, 1fr));
+  }
+  .contact-sign-top {
+    grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)) !important;
+  }
+  .contact-wrapper-box {
+    padding: 1.5rem;
+  }
+  .contact-container-top p {
+    font-size: 1.2rem;
+  }
+  .contact-sign-right {
+    padding: 0 1rem;
+  }
+  .contact-sign-right h3 {
+    font-size: 2rem;
+  }
+  .contact-sign-top {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
   }
 }
 // start news
@@ -1828,7 +1902,7 @@ textarea::-webkit-scrollbar-thumb {
   color: #e3e3e394;
   font-weight: 300;
   font-size: 1.3rem;
-  margin: 2rem 0 3rem 0;
+  margin: 2rem 0 4rem 0;
   line-height: 1.3;
   max-width: 87%;
 }
@@ -1881,7 +1955,7 @@ select {
   background: transparent;
   border: 1px solid #a5a5a5;
   outline: none;
-  color: $light;
+  color: #a5a5a5;
   appearance: none;
   font-weight: 500;
   font-size: 1.1rem;
@@ -2099,14 +2173,53 @@ select {
   position: absolute;
   right: 10%;
   bottom: 21%;
-  color: #e91a1a;
-  font-size: 1.2rem;
-  background: #e91a1a2b;
-  padding: 0.7rem 1.2rem;
-  border-radius: 0 16px 0 16px;
   animation: pop-up 1.2s infinite alternate;
+  color: #e91a1a;
+  background: #e91a1a2b;
+  padding: 0.5rem 0.7rem;
+  border-radius: 0 16px;
+}
+.name-error {
+  position: absolute;
+  top: -47%;
+  left: 2%;
+  z-index: 100;
+  color: #fff;
+  background-color: #5d0dde;
+  padding: 0.5rem 0.9rem;
+  border-radius: 16px 16px 0px 0;
+}
+.number-error {
+  position: absolute;
+  top: -47%;
+  right: 2%;
+  z-index: 100;
+  color: #fff;
+  background-color: #5d0dde;
+  padding: 0.5rem 0.9rem;
+  border-radius: 16px 16px 0px 0;
+}
+.date-error {
+  position: absolute;
+  top: 1%;
+  right: 0.2%;
+  z-index: 100;
+  color: #fff;
+  background-color: #5d0dde;
+  padding: 1.6rem 1.65rem;
+  border-radius: 16px 16px 16px 0px;
+}
+.name-error,
+.number-error,
+.date-error {
+  max-height: 4.5rem;
+}
+.trial-btn-p {
+  padding: 1.65rem;
 }
 #username-input {
+  position: relative;
+  overflow: hidden;
   margin-right: 1rem;
   cursor: auto;
 }
@@ -2134,13 +2247,21 @@ select {
     font-size: 2.9rem;
   }
   .trial-flex-card input {
-    padding: 1rem 2rem !important;
+    padding: 1rem 2rem;
   }
   .trial-btn {
     padding: 1rem 2rem;
   }
   .user-icon {
-    left: 38% !important;
+    left: 44%;
+  }
+  .date-error {
+    padding: 1.2rem 0.9rem;
+  }
+  .name-error,
+  .number-error {
+    top: -65%;
+    padding: 0.7rem 0.9rem;
   }
 }
 @media (max-width: 1435.33px) {
@@ -2160,6 +2281,9 @@ select {
     display: flex;
     flex-direction: column;
   }
+  .user-icon {
+    left: 39%;
+  }
   .trial-left {
     margin-top: 19rem;
   }
@@ -2169,6 +2293,14 @@ select {
   .react-datepicker {
     width: 23rem !important;
     margin-top: 5rem !important;
+  }
+  .trial-flex-card input {
+    font-size: 0.95rem;
+  }
+  .number-error,
+  .name-error {
+    top: -58%;
+    padding: 0.5rem 0.9rem;
   }
   .react-datepicker__month-container {
     width: 23rem !important;
@@ -2209,11 +2341,97 @@ select {
     height: 5.5vh !important;
   }
 }
-@media (max-width: 290px) {
+@media (max-width: 415px) {
+  .user-icon {
+    width: 17px;
+  }
+  .trial-flex-card input {
+    padding: 1rem 1rem;
+  }
+  .phone-svg {
+    width: 1.5rem;
+    right: 2.5%;
+    top: 39%;
+  }
+  .name-error,
+  .number-error {
+    font-size: 0.85rem;
+    border-radius: $borderSquare;
+  }
+  .trial-flex-card input {
+    margin-top: 0.5rem;
+  }
+  .name-error {
+    top: -52%;
+    left: 0%;
+  }
+  .date-error {
+    top: 14%;
+  }
+  .number-error {
+    top: -52%;
+  }
+  .calendar-icon {
+    width: 1.5rem;
+  }
+}
+@media (max-width: 310px) {
   .react-datepicker__week {
     display: grid !important;
     max-width: 100% !important;
     grid-template-columns: repeat(7, 1fr) !important;
+  }
+  .name-error,
+  .number-error {
+    font-size: 0.95rem;
+  }
+  .name-error {
+    position: absolute;
+    top: 6%;
+    padding: 1.25rem 0.9rem;
+    left: 39.6%;
+    border-radius: 16px 16px 16px 0;
+  }
+  .datepicker-p {
+    top: 42%;
+    font-size: 0.95rem;
+  }
+  .trial-btn-container {
+    margin-bottom: 17rem;
+  }
+  .number-error {
+    position: absolute;
+    top: 56%;
+    right: 0.2%;
+    padding: 1.25rem 0.9rem;
+    border-radius: 16px 16px 16px 0;
+  }
+  .date-error {
+    font-size: 0.85rem;
+  }
+  #username-input {
+    margin-bottom: 0rem;
+  }
+  #phonenumber-input {
+    margin-top: 1rem;
+  }
+  .trial-flex-card {
+    flex-direction: column;
+  }
+  .user-icon {
+    left: 84%;
+    top: 68%;
+  }
+  .phone-svg {
+    right: 8.5%;
+    top: 19%;
+  }
+  .calendar-icon {
+    bottom: 17%;
+    right: 5.4%;
+  }
+  .trial-flex-card input {
+    padding: 1rem 0.5rem;
   }
   .react-datepicker__day {
     padding: 0.4rem 0.1rem !important;

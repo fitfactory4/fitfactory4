@@ -13,7 +13,7 @@ export const Pilates = () => {
             Supported by a network of early advocates, contributors, and
             champions. We are gladly helping companies to get started.
           </p>
-          <Link smooth to="/news#" className="pilates-link">
+          <Link smooth to="/blog#" className="pilates-link">
             SEE DETAILS
           </Link>
         </div>
