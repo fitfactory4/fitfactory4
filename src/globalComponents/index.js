@@ -10,3 +10,4 @@ export { SelectIcon } from "./SelectIcon";
 export { Calendar } from "./Calendar";
 export { CalendarCancel } from "./CalendarCancel";
 export { Phone } from "./Phone";
+export { Globe } from "./Globe";

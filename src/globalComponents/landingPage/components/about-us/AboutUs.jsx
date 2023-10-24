@@ -1,31 +1,35 @@
 import { InfoIconBox } from "../../../InfoIconBox";
 import discount from "../../../../images/discount.svg";
+import { LanguageContext } from "../../../../services";
+import { useContext } from "react";
 
 export const AboutUs = () => {
+  const { langs, language } = useContext(LanguageContext);
+
   const iconBoxes = [
     {
       image: discount,
-      text: "FREE WI-FI",
+      text: langs[language].home.introPage.aboutUs.h5.first,
       className: "info-box-1",
     },
     {
       image: discount,
-      text: "+3 TRAINERS",
+      text: langs[language].home.introPage.aboutUs.h5.second,
       className: "info-box-2",
     },
     {
       image: discount,
-      text: "20% DISCOUNT",
+      text: langs[language].home.introPage.aboutUs.h5.third,
       className: "info-box-3",
     },
     {
       image: discount,
-      text: "BEST COMMUNITY",
+      text: langs[language].home.introPage.aboutUs.h5.forth,
       className: "info-box-4",
     },
     {
       image: discount,
-      text: "EXPERTS",
+      text: langs[language].home.introPage.aboutUs.h5.fifth,
       className: "info-box-5",
     },
   ];
@@ -33,22 +37,23 @@ export const AboutUs = () => {
   return (
     <main className="about" id="about-us">
       <div className="about-top-content">
-        <h2 className="about-title-text">ABOUT US</h2>
+        <h2 className="about-title-text">
+          {langs[language].home.introPage.aboutUs.sectionName}
+        </h2>
         <div className="about-line"></div>
       </div>
       <div className="info">
         <div className="info-top">
           <h3 className="info-title">
-            <span className="info-span"> RESPECT</span> YOUR BODY, IT’S THE ONLY
-            ONE YOU GET
+            <span className="info-span">
+              {langs[language].home.introPage.aboutUs.h3First}
+            </span>
+            {langs[language].home.introPage.aboutUs.h3Second}
           </h3>
           <div className="info-flex">
             <div className="info-line"></div>
             <div className="info-text">
-              Aliquam erat volutpat. Donec elit nibh, luctus eu nisi eu, tempus
-              condimentum ipsum. Nunc euismod viverra ante vel imperdiet. In
-              pretium sagittis neque nec lacinia. Integer lorem odio, lobortis
-              et odio eu, ullamcorper placerat arcu.
+              {langs[language].home.introPage.aboutUs.div}
             </div>
           </div>
           <div className="info-wrapper">

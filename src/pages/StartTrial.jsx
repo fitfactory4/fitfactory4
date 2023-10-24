@@ -9,10 +9,12 @@ import {
 } from "../globalComponents";
 import Datepicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { LanguageContext } from "../services";
 
 export const StartTrial = () => {
+  const { langs, language } = useContext(LanguageContext);
+
   const [selectedDate, setSelectedDate] = useState(null);
   const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -33,38 +35,38 @@ export const StartTrial = () => {
   const selectOptions = {
     traners: [
       {
-        value: "No Trainer",
+        value: langs[language].startTrial.select1.option2,
         price: " (0$)",
       },
       {
-        value: "Trainer 1",
+        value: langs[language].startTrial.select1.option3,
         price: " (30$)",
       },
       {
-        value: "Trainer 2",
+        value: langs[language].startTrial.select1.option3,
         price: " (40$)",
       },
       {
-        value: "Trainer 3",
+        value: langs[language].startTrial.select1.option4,
         price: " (50$)",
       },
     ],
 
     trial: [
       {
-        value: "Trial 1",
+        value: langs[language].startTrial.select2.option2,
         price: " (50$)",
       },
       {
-        value: "Trial 2",
+        value: langs[language].startTrial.select2.option3,
         price: " (60$)",
       },
       {
-        value: "Trial 3",
+        value: langs[language].startTrial.select2.option4,
         price: " (70$)",
       },
       {
-        value: "Trial 4",
+        value: langs[language].startTrial.select2.option5,
         price: " (80$)",
       },
     ],
@@ -123,6 +125,17 @@ export const StartTrial = () => {
   };
 
   useEffect(() => {
+    const body = document.getElementById("body");
+    const logo = document.querySelector(".logo");
+    if (language === "en") {
+      logo.style.fontFamily = "Kanit, sans-serif";
+      body.style.fontFamily = "Kanit, sans-serif";
+    } else {
+      body.style.fontFamily = "Contractica R";
+      body.style.fontFeatureSettings = `"case"`;
+      logo.style.fontFamily = "Kanit, sans-serif";
+    }
+
     var dateDay = document.querySelector(".react-datepicker__day");
 
     if (dateDay !== null) {
@@ -152,15 +165,11 @@ export const StartTrial = () => {
       <div className="trial-top">
         <div className="trial-left">
           <div className="front-trial-text">
-            <div className="line-trial-text"></div>BECOME A MEMBER
+            <div className="line-trial-text"></div>
+            {langs[language].startTrial.div}
           </div>
-          <h1 className="trial-title">
-            START YOUR 5 DAY TRIAL MEMBERSHIP TODAY!
-          </h1>
-          <p className="trial-text-main">
-            Aliquam aliquet pretium sagittis est. Eleifend netus diam sit
-            malesuada. Arcu, amet sem gravida sit arcu.
-          </p>
+          <h1 className="trial-title">{langs[language].startTrial.h1}!</h1>
+          <p className="trial-text-main">{langs[language].startTrial.p}.</p>
 
           <form
             action="https://formsubmit.co/00a206a35d4e3ef32ca5ec473880300d"
@@ -173,34 +182,44 @@ export const StartTrial = () => {
                   type="text"
                   name="Username"
                   onChange={handleUserNameChange}
-                  placeholder="* Full Name"
+                  placeholder={
+                    language === "ka" ? "* სრული სახელი" : "* Full Name"
+                  }
                   minLength={7}
                   maxLength={45}
                   required
                 />
                 <UserIcon />
                 {nameRequiredError && (
-                  <div className="name-error">Name is required</div>
+                  <div className="name-error">
+                    {langs[language].startTrial.error1}
+                  </div>
                 )}
                 <input
                   id="phoneNumber-input"
                   type="text"
                   name="Phone Number"
                   onChange={handlePhoneNumberChange}
-                  placeholder="* Your Number"
+                  placeholder={
+                    language === "ka" ? "* მობილურის ნომერი " : "* Your Number"
+                  }
                   minLength={9}
                   className="phoneNumber-input-wrapper"
                   required
                 />
                 <Phone />
                 {numberRequiredError && (
-                  <div className="number-error">Number is required</div>
+                  <div className="number-error">
+                    {langs[language].startTrial.error2}
+                  </div>
                 )}
               </div>
               <div className="trial-flex-card trial-flex-card-2">
                 <label htmlFor="datepicker" className="datepicker-placeholder">
                   {isPlaceHolderActive && (
-                    <p className="datepicker-p">* Start Date</p>
+                    <p className="datepicker-p">
+                      {langs[language].startTrial.datePlaceHolder}
+                    </p>
                   )}
                   <Datepicker
                     selected={selectedDate}
@@ -216,7 +235,9 @@ export const StartTrial = () => {
                   </span>
                 </label>
                 {dateError && (
-                  <div className="date-error">Date is required</div>
+                  <div className="date-error">
+                    {langs[language].startTrial.dateError}
+                  </div>
                 )}
               </div>
               <div className="trial-container">
@@ -228,7 +249,9 @@ export const StartTrial = () => {
                     name="Trainer"
                     required
                   >
-                    <option value="">Please Select An Option</option>
+                    <option value="">
+                      {langs[language].startTrial.select1.option1}
+                    </option>
                     {selectOptions.traners.map((trainer, index) => (
                       <option key={index} value={trainer.value + trainer.price}>
                         {trainer.value + trainer.price}
@@ -245,7 +268,9 @@ export const StartTrial = () => {
                     name="Package"
                     required
                   >
-                    <option value="">Please Select Trial</option>
+                    <option value="">
+                      {langs[language].startTrial.select2.option1}
+                    </option>
                     {selectOptions.trial.map((trial, index) => (
                       <option key={index} value={trial.value + trial.price}>
                         {trial.value + trial.price}
@@ -261,16 +286,16 @@ export const StartTrial = () => {
                     onClick={onClick}
                     className="trial-btn trial-btn-1 trial-btn-p"
                   >
-                    SUBMIT
+                    {langs[language].startTrial.btn}
                   </p>
                 ) : (
                   <button type="submit" className="trial-btn trial-btn-1">
-                    SUBMIT
+                    {langs[language].startTrial.btn}
                   </button>
                 )}
 
                 <a href="#" className="trial-btn trial-btn-2">
-                  TOTAL : {totalPrice} $
+                  {langs[language].startTrial.total} : {totalPrice} $
                 </a>
               </div>
             </div>

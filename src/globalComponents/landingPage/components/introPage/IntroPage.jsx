@@ -1,7 +1,12 @@
 import { HashLink as Link } from "react-router-hash-link";
 import { ScrollArrow } from "../../../ScrollArrow";
 import landingImg from "../../../../images/landingImg.png";
+import { LanguageContext } from "../../../../services";
+import { useContext } from "react";
+
 export const IntroPage = () => {
+  const { langs, language } = useContext(LanguageContext);
+
   return (
     <section className="container" id="home">
       <div className="container-top">
@@ -9,19 +14,16 @@ export const IntroPage = () => {
           <div className="container-flex">
             <div className="landing-title-line"></div>
             <h1 className="landing-title">
-              THE FIRST EVER MIXED MARTIAL ARTS WEBSITE TEMPLATE FOR US.
+              {langs[language].home.introPage.h1}
             </h1>
           </div>
-          <p className="landing-text">
-            Showcase your team, enlist students to classes, sell MMA products
-            and grow your Mixed Martial Arts academy online.
-          </p>
+          <p className="landing-text">{langs[language].home.introPage.p}</p>
           <div className="btn-flex">
             <Link smooth to="/start-trial#" className="btn btn1 button-49">
-              JOIN US
+              {langs[language].home.introPage.link}
             </Link>
             <a href="#about-us" className="btn btn2">
-              ABOUT US
+              {langs[language].home.introPage.aboutUs.btnName}
             </a>
           </div>
         </div>

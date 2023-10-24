@@ -1,1 +1,2 @@
-export { BlogPost } from "./BlogPost";
+export { BlogList } from "./BlogList";
+export { BlogPage } from "./BlogPage";
