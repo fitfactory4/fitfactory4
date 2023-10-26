@@ -436,7 +436,7 @@ html::-webkit-scrollbar-track {
   line-height: 1.1;
 }
 .landing-text-ka {
-  color: $light;
+  color: #e3e3e3de;
   padding: 3rem 0 5rem 0;
   line-height: 1.6;
   font-size: 1.3rem;
@@ -514,7 +514,7 @@ html::-webkit-scrollbar-track {
   }
   .btn-2-ka {
     margin-top: 1rem;
-    margin-left: 0 !important;
+    margin-left: 1rem;
   }
   .container-top {
     display: inline !important;
@@ -569,6 +569,9 @@ html::-webkit-scrollbar-track {
   .btn-flex {
     display: flex;
     flex-direction: column;
+  }
+  .btn-2-ka {
+    margin-left: 0rem !important;
   }
   .btn1 {
     margin-bottom: 1.2rem;
@@ -715,7 +718,8 @@ html::-webkit-scrollbar-track {
   background: $primary;
   border-radius: 16px;
   padding: 1.3rem 2rem;
-  width: 17%;
+  width: 25%;
+  text-align: center;
   font-weight: 800;
   font-size: 1.3rem;
 }
