@@ -1,1 +1,1 @@
-export { blogList } from "./data";
+export { blogList, blogListEn } from "./data";

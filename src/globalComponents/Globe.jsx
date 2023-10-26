@@ -1,11 +1,15 @@
 import globe from "../images/globe.svg";
 import { LanguageContext } from "../services";
-import { useContext, useState } from "react";
+import { BlogPageContext } from "../services";
+import { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { blogList, blogListEn } from "../services";
 
 export const Globe = () => {
   const [isGlobeTrue, setGlobeTrue] = useState(false);
 
-  const { changeLanguage } = useContext(LanguageContext);
+  const { changeLanguage, langs, language } = useContext(LanguageContext);
+  const { setBlogPage, blogPage, blogKa, blogEn } = useContext(BlogPageContext);
 
   const MakeGlobTrue = () => {
     setGlobeTrue(true);
@@ -17,10 +21,14 @@ export const Globe = () => {
   const handleKaClick = () => {
     changeLanguage("ka");
     setGlobeTrue(false);
+    setBlogPage(blogKa);
+    console.log(blogPage);
   };
   const handleEnClick = () => {
     changeLanguage("en");
     setGlobeTrue(false);
+    setBlogPage(blogEn);
+    console.log(blogPage);
   };
 
   return (

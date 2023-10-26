@@ -1,10 +1,11 @@
-import { blogList } from "../../services";
+import { blogListEn, blogList } from "../../services";
 import { BlogList } from "./components";
 import { LanguageContext } from "../../services";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ScrollArrow } from "../../globalComponents";
 
 export const Blog = () => {
-  const { language } = useContext(LanguageContext);
+  const { langs, language } = useContext(LanguageContext);
 
   useEffect(() => {
     const body = document.getElementById("body");
@@ -24,15 +25,17 @@ export const Blog = () => {
       <div className="news-top">
         <div className="news-wrap">
           <h1 className="news-title">
-            <span className="news-block"></span> BLOGS
+            <span className="news-block"></span>
+            {langs[language].blogs.navLinkTitle}
           </h1>
         </div>
       </div>
       <div className="news-flex">
         <div>
-          <BlogList blogs={blogList} />
+          <BlogList blogs={langs[language].blogs.blogLang} />
         </div>
       </div>
+      <ScrollArrow />
     </section>
   );
 };

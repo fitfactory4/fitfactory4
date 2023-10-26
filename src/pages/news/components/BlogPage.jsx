@@ -1,13 +1,15 @@
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { blogList } from "../../../services";
+import { blogListEn, blogList, BlogPageContext } from "../../../services";
 import { LanguageContext } from "../../../services";
+import { ArrowLeft, ScrollArrow } from "../../../globalComponents";
 
 export const BlogPage = () => {
-  const { id } = useParams();
-  const [blog, setBlog] = useState(null);
+  const { url } = useParams();
 
-  const { language } = useContext(LanguageContext);
+  const { setBlogPage, blogPage, blogList, blogListEn, setBlogKa, setBlogEn } =
+    useContext(BlogPageContext);
+  const { langs, language } = useContext(LanguageContext);
 
   useEffect(() => {
     const body = document.getElementById("body");
@@ -23,27 +25,47 @@ export const BlogPage = () => {
   });
 
   useEffect(() => {
-    let blog = blogList.find((blog) => blog.id === parseInt(id));
-    if (blog) {
-      setBlog(blog);
+    let blog = langs[language].blogs.blogLang;
+    let blogPage = blog.find((blog) => blog.url === url);
+    let blogPageKa = blogList.find((blog) => blog.url === url);
+    let blogPageEn = blogListEn.find((blog) => blog.url === url);
+    if (blogPage) {
+      setBlogPage(blogPage);
     }
-  }, [id]);
+    if (blogPageKa) {
+      setBlogKa(blogPageKa);
+    }
+    if (blogPageEn) {
+      setBlogEn(blogPageEn);
+    }
+    console.log(blogPage);
+  }, [url, language]);
   return (
     <div className="post-container">
-      {blog && (
+      <div>
+        <button className="post-btn">
+          <ArrowLeft />
+        </button>
+      </div>
+      {blogPage && (
         <div className="blog-post-main">
           <div className="blog-post-flex">
-            <h1 className="blog-post-title">{blog.title}</h1>
-            <p className="blog-post-text">{blog.date}</p>
+            <h1 className="blog-post-title">{blogPage.title}</h1>
+            <p className="blog-post-text">{blogPage.date}</p>
           </div>
-          <img className="blog-post-png" src={blog.cover} alt={blog.cover} />
+          <img
+            className="blog-post-png"
+            src={blogPage.cover}
+            alt={blogPage.cover}
+          />
           <section className="post-info">
             <div className="post-info-top">
-              <p className="post-info-text">{blog.description}</p>
+              <p className="post-info-text">{blogPage.description}</p>
             </div>
           </section>
         </div>
       )}
+      <ScrollArrow />
     </div>
   );
 };

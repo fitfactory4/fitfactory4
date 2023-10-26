@@ -12,17 +12,31 @@ export const IntroPage = () => {
       <div className="container-top">
         <div className="container-left">
           <div className="container-flex">
-            <div className="landing-title-line"></div>
-            <h1 className="landing-title">
+            <div
+              className={langs[language].home.introPage.landingTiTleLine}
+            ></div>
+            <h1 className={langs[language].home.introPage.h1ClassName}>
               {langs[language].home.introPage.h1}
+              <span className={langs[language].home.introPage.h12ClassName}>
+                {langs[language].home.introPage.h12}
+              </span>
             </h1>
           </div>
-          <p className="landing-text">{langs[language].home.introPage.p}</p>
+          <p className={langs[language].home.introPage.pClassName}>
+            {langs[language].home.introPage.p}
+          </p>
           <div className="btn-flex">
-            <Link smooth to="/start-trial#" className="btn btn1 button-49">
+            <Link
+              smooth
+              to="/start-trial#"
+              className={langs[language].home.introPage.linkClassName}
+            >
               {langs[language].home.introPage.link}
             </Link>
-            <a href="#about-us" className="btn btn2">
+            <a
+              href="#about-us"
+              className={langs[language].home.introPage.aboutUs.btnClassName}
+            >
               {langs[language].home.introPage.aboutUs.btnName}
             </a>
           </div>

@@ -17,7 +17,7 @@ export const Pricing = () => {
       </div>
       <div className="pricing-top">
         <div className="pricing-box price-index-1">
-          <h5 className="date-of-pricingBox center-date-price">
+          <h5 className={langs[language].home.pricing.box1.h5ClassName}>
             {langs[language].home.pricing.box1.h5}
           </h5>
           <h4 className="price-title center-date-price">
@@ -36,12 +36,16 @@ export const Pricing = () => {
             <img className="price-svg" src={checkIicon} alt="check-icon-svg" />
             <p className="price-text">{langs[language].home.pricing.box1.p3}</p>
           </div>
-          <Link smooth to="/start-trial#" className="price-btn">
+          <Link
+            smooth
+            to="/start-trial#"
+            className={langs[language].home.pricing.linkClassName}
+          >
             {langs[language].home.pricing.link}
           </Link>
         </div>
         <div className="pricing-box price-index-2">
-          <h5 className="date-of-pricingBox center-date-price">
+          <h5 className={langs[language].home.pricing.box2.h5ClassName}>
             {langs[language].home.pricing.box2.h5}
           </h5>
           <h4 className="price-title center-date-price">
@@ -60,12 +64,16 @@ export const Pricing = () => {
             <img className="price-svg" src={checkIicon} alt="check-icon-svg" />
             <p className="price-text">{langs[language].home.pricing.box2.p3}</p>
           </div>
-          <Link smooth to="/start-trial#" className="price-btn">
+          <Link
+            smooth
+            to="/start-trial#"
+            className={langs[language].home.pricing.linkClassName}
+          >
             {langs[language].home.pricing.link}
           </Link>
         </div>
         <div className="pricing-box price-index-3">
-          <h5 className="date-of-pricingBox center-date-price">
+          <h5 className={langs[language].home.pricing.box3.h5ClassName}>
             {langs[language].home.pricing.box3.h5}
           </h5>
           <h4 className="price-title center-date-price">
@@ -96,7 +104,14 @@ export const Pricing = () => {
             />
             <p className="price-text">{langs[language].home.pricing.box3.p3}</p>
           </div>
-          <Link smooth to="/start-trial#" className="price-btn last-price-btn">
+          <Link
+            smooth
+            to="/start-trial#"
+            className={
+              langs[language].home.pricing.linkClassName +
+              langs[language].home.pricing.lastLinkClassName
+            }
+          >
             {langs[language].home.pricing.link}
           </Link>
         </div>

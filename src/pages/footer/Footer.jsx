@@ -17,7 +17,9 @@ export const Footer = () => {
       <div className="social-media">
         <div className="social-media-top">
           <img className="insta-icon" src={instagram} alt="instagram-icon" />
-          <p className="footer-p-social">{langs[language].footer.p}</p>
+          <p className={langs[language].footer.pClassName}>
+            {langs[language].footer.p}
+          </p>
         </div>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2952.4266812639958!2d42.66886237532179!3d42.269414440824654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x405c8d00a9711b21%3A0xed211ee6f8a8aaa7!2sFit%20Factory!5e0!3m2!1sen!2sge!4v1698053060816!5m2!1sen!2sge"
@@ -41,19 +43,27 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="footer-top">
+      <div className={langs[language].footer.footerTop}>
         <div className="footer-left">
-          <h5 className="footer-left-title">
+          <h5 className={langs[language].footer.h5firstClassName}>
             {langs[language].footer.h5first}
           </h5>
           <div className="footer-left-flex">
-            <p>{langs[language].footer.p1} 09:00-20:00</p>
-            <p>{langs[language].footer.p2} 09:00-18:00</p>
-            <p>{langs[language].footer.p3} 09:00-18:00</p>
+            <p className={langs[language].footer.pBottomClassName}>
+              {langs[language].footer.p1} 09:00-20:00
+            </p>
+            <p className={langs[language].footer.pBottomClassName}>
+              {langs[language].footer.p2} 09:00-18:00
+            </p>
+            <p className={langs[language].footer.pBottomClassName}>
+              {langs[language].footer.p3} 09:00-18:00
+            </p>
           </div>
         </div>
-        <div className="footer-middle">
-          <h4 className="footer-logo">FITFACTORY</h4>
+        <div className={langs[language].footer.footerMiddleClassName}>
+          <h4 className={langs[language].footer.h4FooterClassName}>
+            FITFACTORY
+          </h4>
           <div className="footer-middle-flex">
             <a
               href="https://www.instagram.com/fitfactory_official_georgia/"
@@ -80,13 +90,19 @@ export const Footer = () => {
           </div>
         </div>
         <div className="footer-right">
-          <h5 className="footer-right-title">
+          <h5 className={langs[language].footer.h5secondClassName}>
             {langs[language].footer.h5second}
           </h5>
           <div className="footer-right-flex">
-            <p>Fitfactory, buxaidze N17</p>
-            <p>+1800-001-658</p>
-            <p>fitfactory2023@gmail.com</p>
+            <p className={langs[language].footer.pBottomClassName}>
+              Fitfactory, buxaidze N17
+            </p>
+            <p className={langs[language].footer.pBottomClassName}>
+              +1800-001-658
+            </p>
+            <p className={langs[language].footer.pBottomClassName}>
+              fitfactory2023@gmail.com
+            </p>
           </div>
         </div>
       </div>

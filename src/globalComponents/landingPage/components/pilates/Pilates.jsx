@@ -10,8 +10,14 @@ export const Pilates = () => {
     <section className="pilates">
       <div className="pilates-top">
         <div className="pilates-left">
-          <h4 className="pilates-title">
-            <span className="pilates-span">
+          <h4
+            className={langs[language].home.introPage.pilates.h4firstClassName}
+          >
+            <span
+              className={
+                langs[language].home.introPage.pilates.h4secondClassName
+              }
+            >
               {langs[language].home.introPage.pilates.h4First}
             </span>
             {langs[language].home.introPage.pilates.h4Second}
@@ -19,7 +25,11 @@ export const Pilates = () => {
           <p className="pilates-text">
             {langs[language].home.introPage.pilates.p}
           </p>
-          <Link smooth to="/blog#" className="pilates-link">
+          <Link
+            smooth
+            to="/blog#"
+            className={langs[language].home.introPage.pilates.linkClassName}
+          >
             {langs[language].home.introPage.pilates.link}
           </Link>
         </div>

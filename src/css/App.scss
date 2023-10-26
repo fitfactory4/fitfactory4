@@ -115,7 +115,7 @@ html::-webkit-scrollbar-track {
   border-bottom: 2px solid #ffffff0a;
   position: fixed;
   z-index: 1110000;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
 }
 .globe-flex {
   cursor: pointer;
@@ -173,8 +173,7 @@ html::-webkit-scrollbar-track {
 }
 .ka-btn {
   border-bottom: 1px solid #52525224;
-  font-family: "Contractica R";
-  font-feature-settings: "case" on;
+  font-family: "extrasquare";
   font-size: 0.85rem;
 }
 .ka-btn:hover,
@@ -252,11 +251,48 @@ html::-webkit-scrollbar-track {
 .burger-svg {
   cursor: pointer;
 }
+// start-ka navbar
+.nav-link-ka {
+  color: $light;
+  position: relative;
+  font-family: "bpg-banner-caps";
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-right: 2.75rem;
+  transition: all 0.15s ease-in;
+}
+.nav-link-ka:hover {
+  color: $primary;
+}
+.nav-right-arrow-svg-ka {
+  margin-left: 2rem !important;
+}
 // start mobile-navbar
+@media (max-width: 1300px) {
+  .nav-link-ka {
+    margin-right: 2rem !important;
+    font-size: 0.85rem;
+  }
+  .nav-right-arrow-svg-ka {
+    margin-left: 3rem !important;
+  }
+  .globe-svg {
+    margin-right: 1.75rem;
+  }
+}
+@media (max-width: 1150px) {
+  .nav-link-ka {
+    font-size: 0.9rem;
+  }
+}
 @media (max-width: 992px) {
   .nav {
     max-width: 80%;
     margin: 0 auto;
+  }
+  .nav-link-ka {
+    font-size: 1rem;
+    margin-right: 0rem !important;
   }
   .nav-link {
     margin-right: 0 !important;
@@ -393,6 +429,49 @@ html::-webkit-scrollbar-track {
   box-shadow: #ffffff11 0px 1px 1px 0px inset, #ffffff11 0px 20px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
+// start KA-landing
+.landing-title-ka {
+  padding: 0.2rem;
+  font-family: "bpg-banner-caps";
+  line-height: 1.1;
+}
+.landing-text-ka {
+  color: $light;
+  padding: 3rem 0 5rem 0;
+  line-height: 1.6;
+  font-size: 1.3rem;
+  font-family: "bpg-banner-caps";
+}
+.landing-title-line-ka {
+  width: 15px;
+  height: 7.3rem;
+  background: $primary;
+  border-radius: 2px;
+}
+.landing-span-ka {
+  font-family: "Kanit", sans-serif;
+  text-transform: uppercase;
+}
+.btn-1-ka {
+  border: 4px solid $light;
+  padding: 1.3rem;
+  font-size: 1.04rem;
+  border-radius: 16px;
+  color: $light;
+  font-weight: 500;
+  font-family: "bpg-banner-caps";
+}
+.btn-2-ka {
+  font-size: 1.04rem;
+  background: #bbdc00;
+  border: 4px solid #bbdc00;
+  padding: 1.3rem;
+  border-radius: 16px;
+  color: #191919;
+  font-weight: 600;
+  font-family: "bpg-banner-caps";
+  margin-left: 0.7rem;
+}
 // container-right mobile
 @media (max-width: 1700px) {
   .landing-img {
@@ -433,6 +512,10 @@ html::-webkit-scrollbar-track {
     padding-top: 6rem;
     max-width: 100%;
   }
+  .btn-2-ka {
+    margin-top: 1rem;
+    margin-left: 0 !important;
+  }
   .container-top {
     display: inline !important;
   }
@@ -450,6 +533,10 @@ html::-webkit-scrollbar-track {
   .landing-title-line {
     width: 25rem;
     height: 0.8rem;
+  }
+  .landing-title-line-ka {
+    width: 15rem;
+    height: 0.65rem;
   }
   .container-top {
     padding-top: 9rem;
@@ -624,6 +711,14 @@ html::-webkit-scrollbar-track {
   height: 1px;
   margin-left: 2rem;
 }
+.about-title-text-ka {
+  background: $primary;
+  border-radius: 16px;
+  padding: 1.3rem 2rem;
+  width: 17%;
+  font-weight: 800;
+  font-size: 1.3rem;
+}
 // start about section mobile version
 @media (max-width: 1665px) {
   .about-title-text {
@@ -642,6 +737,11 @@ html::-webkit-scrollbar-track {
     display: flex;
     flex-direction: column-reverse;
   }
+  .about-title-text-ka {
+    margin-top: 4rem;
+    width: 32%;
+    text-align: center;
+  }
   .about-title-text {
     margin-top: 2.5rem;
     width: auto !important;
@@ -649,6 +749,20 @@ html::-webkit-scrollbar-track {
   }
   .about-line {
     margin-left: 0 !important;
+  }
+}
+@media (max-width: 768px) {
+  .about-title-text-ka {
+    width: 39%;
+    line-height: 1.4;
+    font-size: 1.3rem;
+  }
+}
+@media (max-width: 600px) {
+  .about-title-text-ka {
+    width: 47%;
+    line-height: 1.4;
+    font-size: 1rem;
   }
 }
 @media (max-width: 281px) {
@@ -750,6 +864,37 @@ html::-webkit-scrollbar-track {
 .info-box-5 {
   border-right: 1px solid #ffffff2b;
 }
+// ka-info
+.info-title-ka {
+  font-size: 4.5rem;
+  color: $light;
+  line-height: 1.2;
+  font-weight: 900;
+  font-style: italic;
+}
+.info-text-ka {
+  color: $light;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  max-width: 74%;
+  margin-left: 2rem;
+}
+.info-snap-ka {
+  color: $primary;
+}
+.info-content-h5-ka {
+  margin-left: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.info-line-ka {
+  width: 0.6rem;
+  border-radius: 2px;
+  height: 6rem;
+
+  background: $primary;
+}
 @media (max-width: 1555px) {
   .info-wrapper-top {
     max-width: 90%;
@@ -758,6 +903,31 @@ html::-webkit-scrollbar-track {
 @media (max-width: 1240px) {
   .info-wrapper-top {
     max-width: 100%;
+  }
+}
+@media (max-width: 1300px) {
+  .info-title-ka {
+    font-size: 3.5rem;
+    margin-bottom: 4rem;
+  }
+}
+@media (max-width: 992px) {
+  .info-title-ka {
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+  }
+  .info-line-ka {
+    display: none;
+  }
+  .info-text-ka {
+    margin-bottom: 4rem;
+    font-size: 1.2rem;
+    max-width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .info-title-ka {
+    font-size: 2rem;
   }
 }
 @media (max-width: 1140px) {
@@ -796,6 +966,10 @@ html::-webkit-scrollbar-track {
   .info-top {
     text-align: center;
   }
+  .info-text-ka {
+    margin-left: 0 !important;
+    font-size: 1.1rem;
+  }
   .info-title {
     max-width: 100%;
     margin: 0 auto;
@@ -824,6 +998,11 @@ html::-webkit-scrollbar-track {
 @media (max-width: 768px) {
   .info-title {
     font-size: 2rem;
+  }
+}
+@media (max-width: 570px) {
+  .info-title-ka {
+    font-size: 1.7rem;
   }
 }
 @media (max-width: 290px) {
@@ -886,6 +1065,34 @@ html::-webkit-scrollbar-track {
 }
 .pilates-right {
   grid-column: 5/9;
+}
+// pilates-ka
+.pilates-link-ka {
+  background: $primary;
+  padding: 1.3rem 2rem;
+  color: $dark;
+  border-radius: 11px;
+  font-weight: 800;
+  transition: all 0.2s ease;
+}
+.pilates-link-ka:hover {
+  background-color: $dark;
+  color: $light;
+}
+.pilates-title-ka {
+  font-size: 3.7rem;
+  font-weight: 900;
+}
+
+@media (max-width: 992px) {
+  .pilates-title-ka {
+    font-size: 2.7rem;
+  }
+}
+@media (max-width: 285px) {
+  .pilates-title-ka {
+    font-size: 2.2rem !important;
+  }
 }
 @media (max-width: 1412px) {
   .pilates-title {
@@ -980,7 +1187,22 @@ html::-webkit-scrollbar-track {
   border-radius: $borderSquare;
   padding: 7rem 6rem;
 }
-
+// carousel-ka
+.carousel-1-title-ka {
+  color: $primary;
+}
+.carousel-2-title-ka {
+  color: #00dcdc !important;
+}
+.carousel-3-title-ka {
+  color: #9868e6 !important;
+}
+.carousel-4-title-ka {
+  color: #e91a1a !important;
+}
+.carousel-5-title-ka {
+  color: #fff566 !important;
+}
 /* Active carousel item */
 .carousel-item.active {
   display: block;
@@ -992,6 +1214,14 @@ html::-webkit-scrollbar-track {
   font-weight: 600;
   color: #fff;
   padding-top: 7rem;
+}
+// trainer-ka
+.trainers-main-title-ka {
+  padding-top: 7rem;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 900;
+  color: #fff;
 }
 /* Navigation buttons */
 .carousel-flex {
@@ -1010,6 +1240,20 @@ html::-webkit-scrollbar-track {
   margin: 2rem 0;
   line-height: 1.4;
   font-weight: 300;
+}
+// slider-ka
+.slider-text-5-ka {
+  color: $light;
+  font-size: 1.5rem;
+  margin: 2rem 0;
+  line-height: 1.4;
+  font-weight: 300;
+}
+.carousel-info-title-ka {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-top: 5.5rem;
+  color: $primary;
 }
 .vectorLeft {
   margin-left: 6rem;
@@ -1124,6 +1368,9 @@ html::-webkit-scrollbar-track {
   .trainers-main-title {
     font-size: 3rem;
   }
+  .trainers-main-title-ka {
+    font-size: 2.5rem;
+  }
   .slider-text {
     font-size: 1.5rem;
   }
@@ -1174,6 +1421,14 @@ html::-webkit-scrollbar-track {
 }
 .center-date-price {
   text-align: center;
+}
+// center-date-price-ka
+.center-date-price-ka {
+  text-align: center;
+  color: $light;
+  font-size: 3rem;
+  line-height: 1.2;
+  font-weight: 900;
 }
 .price-index-3 {
   background: linear-gradient(#191919, #191919) padding-box,
@@ -1232,6 +1487,18 @@ html::-webkit-scrollbar-track {
   box-shadow: #ffffff29 0px 1px 1px 0px inset, #ffffff29 0px 20px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
+// price-btn-ka
+.price-btn-ka {
+  background: $primary;
+  text-align: center;
+  padding: 1.2rem;
+  display: block;
+  font-size: 1.2rem;
+  border-radius: 16px;
+  color: $secondary-dark;
+  font-weight: 900;
+  margin-top: 4rem;
+}
 .last-price-btn {
   background-color: #ffd601;
 }
@@ -1260,6 +1527,9 @@ html::-webkit-scrollbar-track {
   .pricing-top {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(343px, 1fr));
+  }
+  .info-top-ka {
+    grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
   }
 }
 @media (max-width: 340px) {
@@ -1354,6 +1624,12 @@ html::-webkit-scrollbar-track {
   font-weight: 800;
   color: $dark;
 }
+// footer-p-socila-ka
+.footer-p-social-ka {
+  margin-top: 1rem;
+  font-size: 2.7rem;
+  font-weight: 900;
+}
 .social-icon {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -1364,6 +1640,53 @@ html::-webkit-scrollbar-track {
   font-weight: 800;
   font-style: italic;
   margin-bottom: 2.5rem;
+}
+// footer-logo-ka
+.footer-logo-ka {
+  font-size: 3rem;
+  color: $primary;
+  font-weight: 800;
+  font-family: "Kanit", sans-serif;
+  font-style: italic;
+  margin-bottom: 2.5rem;
+}
+@media (max-width: 1360px) {
+  .footer-top-ka {
+    max-width: 93%;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 1400px) {
+  .footer-top-ka {
+    max-width: 97% !important;
+  }
+}
+@media (max-width: 1260px) {
+  .footer-top-ka {
+    max-width: 93%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .footer-middle-ka {
+    padding: 7rem 0;
+  }
+}
+@media (max-width: 992px) {
+  .footer-top-ka {
+    max-width: 85% !important;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .footer-middle-ka {
+    padding: 7rem 0;
+  }
+}
+@media (max-width: 768px) {
+  .p-footer-all {
+    font-size: 1rem !important;
+  }
 }
 .footer-icon {
   cursor: pointer;
@@ -1385,6 +1708,31 @@ html::-webkit-scrollbar-track {
   border-bottom: 1px solid #ffffff1c;
   padding-bottom: 1.5rem;
   font-style: italic;
+}
+// footer-left-title-ka
+.footer-top-ka {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  max-width: 85%;
+  margin: 0 auto;
+}
+.footer-left-title-ka,
+.footer-right-title-ka {
+  font-size: 2rem;
+  color: $light;
+  font-style: italic;
+  font-weight: 900;
+  border-bottom: 1px solid #ffffff17;
+  padding-bottom: 2rem;
+}
+.p-footer-all {
+  text-align: left;
+  color: $light;
+  line-height: 2.5;
+  font-size: 1.2rem;
+  font-weight: 300;
+  transition: all 0.2s ease;
 }
 .footer-right-flex,
 .footer-left-flex {
@@ -1785,6 +2133,7 @@ textarea::-webkit-scrollbar-thumb {
   font-size: 4rem;
   color: $light;
   font-weight: 800;
+  text-transform: uppercase;
   font-style: italic;
   margin-top: 2rem;
 }
@@ -1836,7 +2185,7 @@ textarea::-webkit-scrollbar-thumb {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 15rem;
+  padding-top: 7rem;
   max-width: 93%;
   margin: 0 auto;
 }
@@ -1872,6 +2221,34 @@ textarea::-webkit-scrollbar-thumb {
   font-weight: 300;
   line-height: 1.5;
 }
+.arrow-post {
+  position: relative;
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.1s ease-in;
+}
+.post-btn {
+  position: relative;
+  margin-top: 10rem;
+  margin-left: 3.5rem;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+.arrow-post-svg {
+  width: 3.2rem;
+  background: #56565669;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  transition: all 0.3s ease-in;
+}
+.arrow-post-svg:hover {
+  background-color: #2141e0;
+  transform: scale(1.05);
+}
+
 @media (max-width: 1400px) {
   .blog-post-title {
     max-width: 60%;
@@ -1882,6 +2259,7 @@ textarea::-webkit-scrollbar-thumb {
     max-width: 90%;
   }
 }
+
 @media (max-width: 992px) {
   .news-title {
     font-size: 2.5rem;

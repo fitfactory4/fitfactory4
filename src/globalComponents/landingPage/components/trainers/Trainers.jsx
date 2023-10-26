@@ -24,9 +24,9 @@ export const Trainers = () => {
       id: 1,
       icon: trainer1,
       text: langs[language].home.trainers.trainer1.text,
-      textClassName: "slider-text-1 slider-text",
+      textClassName: langs[language].home.trainers.trainer1.text1ClassName,
       title: langs[language].home.trainers.trainer1.title,
-      titleClassName: "carousel-info-title carousel-1-title",
+      titleClassName: langs[language].home.trainers.trainer1.title1ClassName,
       jobDescription: langs[language].home.trainers.trainer1.jobDescription,
       className: "trainer-box-1",
     },
@@ -34,9 +34,9 @@ export const Trainers = () => {
       id: 2,
       icon: trainer1,
       text: langs[language].home.trainers.trainer2.text,
-      textClassName: "slider-text-2 slider-text",
+      textClassName: langs[language].home.trainers.trainer2.text2ClassName,
       title: langs[language].home.trainers.trainer2.title,
-      titleClassName: "carousel-info-title carousel-2-title",
+      titleClassName: langs[language].home.trainers.trainer2.title2ClassName,
       jobDescription: langs[language].home.trainers.trainer2.jobDescription,
       className: "trainer-box-2",
     },
@@ -44,9 +44,9 @@ export const Trainers = () => {
       id: 3,
       icon: trainer1,
       text: langs[language].home.trainers.trainer3.text,
-      textClassName: "slider-text-3 slider-text",
+      textClassName: langs[language].home.trainers.trainer3.text3ClassName,
       title: langs[language].home.trainers.trainer3.title,
-      titleClassName: "carousel-info-title carousel-3-title",
+      titleClassName: langs[language].home.trainers.trainer3.title3ClassName,
       jobDescription: langs[language].home.trainers.trainer3.jobDescription,
       className: "trainer-box-3",
     },
@@ -54,9 +54,9 @@ export const Trainers = () => {
       id: 4,
       icon: trainer1,
       text: langs[language].home.trainers.trainer4.text,
-      textClassName: "slider-text-4 slider-text",
+      textClassName: langs[language].home.trainers.trainer4.text4ClassName,
       title: langs[language].home.trainers.trainer4.title,
-      titleClassName: "carousel-info-title carousel-4-title",
+      titleClassName: langs[language].home.trainers.trainer4.title4ClassName,
       jobDescription: langs[language].home.trainers.trainer4.jobDescription,
       className: "trainer-box-4",
     },
@@ -64,9 +64,9 @@ export const Trainers = () => {
       id: 5,
       icon: trainer1,
       text: langs[language].home.trainers.trainer5.text,
-      textClassName: "slider-text-5 slider-text",
+      textClassName: langs[language].home.trainers.trainer5.text5ClassName,
       title: langs[language].home.trainers.trainer5.title,
-      titleClassName: "carousel-info-title carousel-5-title",
+      titleClassName: langs[language].home.trainers.trainer5.title5ClassName,
       jobDescription: langs[language].home.trainers.trainer5.jobDescription,
       className: "trainer-box-5",
     },
@@ -74,7 +74,7 @@ export const Trainers = () => {
 
   return (
     <div className={`main-trainer${activeIndex}`} id="trainers">
-      <p className="trainers-main-title">
+      <p className={langs[language].home.trainers.trainersClassName}>
         {langs[language].home.trainers.navLinkTitle}
       </p>
       <div className="carousel-container">

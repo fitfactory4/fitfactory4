@@ -16,7 +16,7 @@ export const NavBar = ({ langs, language }) => {
 
   const links = [
     {
-      className: "nav-link",
+      className: langs[language].home.introPage.navLinkClassName,
       to: "/",
       href: "#",
       homepage: true,
@@ -24,28 +24,28 @@ export const NavBar = ({ langs, language }) => {
       isGlobe: false,
     },
     {
-      className: "nav-link",
+      className: langs[language].home.introPage.navLinkClassName,
       to: "/",
       href: "#trainers",
       name: langs[language].home.trainers.navLinkTitle,
       isGlobe: false,
     },
     {
-      className: "nav-link",
+      className: langs[language].home.introPage.navLinkClassName,
       to: "/",
       href: "#pricing",
       name: langs[language].home.pricing.navLinkTitle,
       isGlobe: false,
     },
     {
-      className: "nav-link",
+      className: langs[language].home.introPage.navLinkClassName,
       href: "#",
       to: "/blogs",
       name: langs[language].blogs.navLinkTitle,
       isGlobe: false,
     },
     {
-      className: "nav-link",
+      className: langs[language].home.introPage.navLinkClassName,
       href: "#",
       to: "/contact",
       name: langs[language].contact.navLinkTitle,
@@ -55,7 +55,7 @@ export const NavBar = ({ langs, language }) => {
       isGlobe: true,
     },
     {
-      className: "nav-link last-li",
+      className: `${langs[language].home.introPage.navLinkClassName} last-li`,
       href: "#",
       to: "/start-trial",
       name: langs[language].startTrial.navLinkTitle,

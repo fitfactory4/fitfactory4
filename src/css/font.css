@@ -2,3 +2,19 @@
   font-family: "Contractica R";
   src: url("../fonts/TBCContractica-Regular.ttf");
 }
+@font-face {
+  font-family: "Contractica B";
+  src: url("../fonts/TBCContractica-Bold.ttf");
+}
+@font-face {
+  font-family: "Contractica BB";
+  src: url("../fonts/TBCContractica-Black.ttf");
+}
+@font-face {
+  font-family: "extrasquare";
+  src: url("../fonts/bpg_extrasquare_mtavruli_2009.ttf");
+}
+@font-face {
+  font-family: "bpg-banner-caps";
+  src: url("../fonts/bpg-banner-caps-webfont.ttf");
+}
