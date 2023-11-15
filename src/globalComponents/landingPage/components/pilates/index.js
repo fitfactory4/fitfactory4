@@ -1,1 +1,1 @@
-export { Pilates } from "./Pilates";
+export { PilatesHome } from "./PilatesHome";

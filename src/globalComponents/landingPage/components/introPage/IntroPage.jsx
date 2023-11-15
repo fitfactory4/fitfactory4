@@ -28,7 +28,7 @@ export const IntroPage = () => {
           <div className="btn-flex">
             <Link
               smooth
-              to="/start-trial#"
+              to="/starttrial#"
               className={langs[language].home.introPage.linkClassName}
             >
               {langs[language].home.introPage.link}

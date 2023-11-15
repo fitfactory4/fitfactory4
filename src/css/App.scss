@@ -50,7 +50,54 @@ a {
   outline: none;
 }
 input {
-  font-family: "Kanit", sans-serif !important;
+  font-family: "FiraGo";
+}
+select {
+  font-family: "FiraGo" !important;
+}
+textarea {
+  font-family: "FiraGo" !important;
+}
+input[type="date"]:required:invalid::-webkit-datetime-edit {
+  color: transparent;
+}
+input[type="date"]:focus::-webkit-datetime-edit {
+  color: black !important;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background-color: #e2bf04;
+  border-radius: $borderRoundRadius;
+  padding: 1rem 23rem;
+  position: absolute;
+  right: 3%;
+  cursor: pointer;
+  opacity: 0;
+}
+.date-text {
+  position: absolute;
+  top: 38%;
+  left: 4%;
+}
+@supports (-webkit-touch-callout: none) {
+  .date-text {
+    display: none;
+  }
+}
+[type="date"]::-webkit-datetime-edit-text {
+  -webkit-appearance: none;
+  display: none;
+}
+input[type="date"]::-webkit-datetime-edit-month-field {
+  -webkit-appearance: none;
+  display: none;
+}
+input[type="date"]::-webkit-datetime-edit-day-field {
+  -webkit-appearance: none;
+  display: none;
+}
+input[type="date"]::-webkit-datetime-edit-year-field {
+  -webkit-appearance: none;
+  display: none;
 }
 // end global
 // scroll-ui
@@ -73,8 +120,8 @@ html::-webkit-scrollbar-track {
 .scroll-btn-active {
   display: flex;
   position: fixed;
-  right: 2rem;
-  bottom: 2rem;
+  right: 1.45rem;
+  bottom: 6rem;
   z-index: 111111;
   animation: bounce 0.4s infinite alternate;
   animation-iteration-count: 1;
@@ -92,14 +139,14 @@ html::-webkit-scrollbar-track {
   }
 }
 .scroll-img {
-  background: #fff566;
-  padding: 1.8rem 1.2rem;
-  bottom: 2rem;
-  right: 2.1rem;
+  bottom: 6rem;
+  background: #fff;
+  padding: 1.45rem 1.2rem;
+  right: 1.45rem;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
   z-index: 100000;
-  border-radius: 10px;
+  border-radius: $borderRoundRadius;
   cursor: pointer;
   transition: all 1s ease;
 }
@@ -108,6 +155,85 @@ html::-webkit-scrollbar-track {
   border-radius: 50px;
   background-color: #dfd42f;
 }
+// error-page
+.error-top {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: "Kanit", sans-serif;
+}
+.p-error-text {
+  color: $light;
+  margin: 2rem 0;
+  font-size: 1.2rem;
+  max-width: 80%;
+  margin: 0 auto;
+  font-weight: 300;
+  line-height: 1.4;
+  margin-bottom: 4.5rem;
+}
+.error-page-text {
+  background: $primary;
+  padding: 1rem 1.9rem;
+  border-radius: 16px;
+  border: none;
+  color: $dark;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+.error-page-text:hover {
+  opacity: 0.8;
+}
+.page-title-flex {
+  font-size: 17rem;
+  color: $light;
+  font-weight: 700;
+}
+.error-top h2 {
+  font-size: 4rem;
+  color: $light;
+  margin: 2rem 0;
+  font-weight: 600;
+}
+.title-word {
+  font-size: 14rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: $primary;
+  animation: color-animation 10s linear infinite;
+}
+@keyframes color-animation {
+  0% {
+    color: $primary;
+  }
+  50% {
+    color: #00dcdc;
+  }
+  100% {
+    color: $primary;
+  }
+}
+@media (max-width: 992px) {
+  .title-word {
+    font-size: 5rem;
+  }
+  .error-top h2 {
+    font-size: 3rem;
+  }
+  .p-error-text {
+    font-size: 1.2rem;
+  }
+  .error-page-text {
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+  }
+}
+// end error-page
 // end scroll-ui
 .header {
   width: 100%;
@@ -135,6 +261,14 @@ html::-webkit-scrollbar-track {
   flex-direction: column;
   animation: pop-down 0.3s infinite alternate;
   animation-iteration-count: 1;
+  z-index: 10000;
+}
+.langs-flex-active div {
+  flex-direction: column;
+  display: flex;
+}
+.display-none {
+  display: none;
 }
 @media (max-width: 992px) {
   .globe-svg {
@@ -173,8 +307,8 @@ html::-webkit-scrollbar-track {
 }
 .ka-btn {
   border-bottom: 1px solid #52525224;
-  font-family: "extrasquare";
-  font-size: 0.85rem;
+  font-family: "FiraGo";
+  font-size: 0.9rem;
 }
 .ka-btn:hover,
 .en-btn:hover {
@@ -255,9 +389,9 @@ html::-webkit-scrollbar-track {
 .nav-link-ka {
   color: $light;
   position: relative;
-  font-family: "bpg-banner-caps";
+  font-family: "FiraGo";
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   margin-right: 2.75rem;
   transition: all 0.15s ease-in;
 }
@@ -432,15 +566,14 @@ html::-webkit-scrollbar-track {
 // start KA-landing
 .landing-title-ka {
   padding: 0.2rem;
-  font-family: "bpg-banner-caps";
   line-height: 1.1;
 }
 .landing-text-ka {
   color: #e3e3e3de;
   padding: 3rem 0 5rem 0;
   line-height: 1.6;
-  font-size: 1.3rem;
-  font-family: "bpg-banner-caps";
+  font-size: 1.35rem;
+  font-feature-settings: "c2sc", "smcp";
 }
 .landing-title-line-ka {
   width: 15px;
@@ -457,9 +590,14 @@ html::-webkit-scrollbar-track {
   padding: 1.3rem;
   font-size: 1.04rem;
   border-radius: 16px;
+  font-weight: 800;
+  transition: all 0.2s ease-in;
   color: $light;
-  font-weight: 500;
-  font-family: "bpg-banner-caps";
+  font-family: "FiraGo" !important;
+}
+.btn-1-ka:hover {
+  background-color: $light;
+  color: $dark;
 }
 .btn-2-ka {
   font-size: 1.04rem;
@@ -468,9 +606,16 @@ html::-webkit-scrollbar-track {
   padding: 1.3rem;
   border-radius: 16px;
   color: #191919;
-  font-weight: 600;
-  font-family: "bpg-banner-caps";
+  font-weight: 800;
   margin-left: 0.7rem;
+  transition: all 0.2s ease;
+  font-family: "FiraGo" !important;
+}
+.btn-2-ka:hover {
+  background-color: $light;
+  box-shadow: #ffffff11 0px 1px 1px 0px inset, #ffffff11 0px 20px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  border: 4px solid $light;
 }
 // container-right mobile
 @media (max-width: 1700px) {
@@ -888,9 +1033,10 @@ html::-webkit-scrollbar-track {
 }
 .info-text-ka {
   color: $light;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   line-height: 1.5;
   max-width: 74%;
+  font-feature-settings: "c2sc", "smcp";
   margin-left: 2rem;
 }
 .info-snap-ka {
@@ -1056,6 +1202,7 @@ html::-webkit-scrollbar-track {
   font-size: 1.5rem;
   margin: 2rem 0;
   line-height: 1.4;
+  font-feature-settings: "c2sc", "smcp" !important;
   margin-bottom: 4.2rem;
   color: #484747;
 }
@@ -1087,6 +1234,7 @@ html::-webkit-scrollbar-track {
   color: $dark;
   border-radius: 11px;
   font-weight: 800;
+  font-size: 1.2rem;
   transition: all 0.2s ease;
 }
 .pilates-link-ka:hover {
@@ -1262,6 +1410,7 @@ html::-webkit-scrollbar-track {
   margin: 2rem 0;
   line-height: 1.4;
   font-weight: 300;
+  font-feature-settings: "c2sc", "smcp";
 }
 .carousel-info-title-ka {
   font-size: 2.5rem;
@@ -1357,7 +1506,7 @@ html::-webkit-scrollbar-track {
   padding-bottom: 10rem;
 }
 .main-trainer0 {
-  background: linear-gradient(180deg, #bbdc00, transparent);
+  background: linear-gradient(180deg, $primary, transparent);
 }
 .main-trainer1 {
   background: linear-gradient(180deg, #00dcdc, transparent);
@@ -1444,8 +1593,8 @@ html::-webkit-scrollbar-track {
   align-items: center;
 }
 .pricing-box {
-  background: linear-gradient(#191919, #191919) padding-box,
-    linear-gradient(to bottom, #bbdc00, #bbdc00, #191919, #191919) border-box;
+  background: linear-gradient($dark, $dark) padding-box,
+    linear-gradient(to bottom, $primary, $primary, $dark, $dark) border-box;
   border: 3px solid transparent;
   border-radius: $borderSquare;
   padding: 4rem;
@@ -1529,6 +1678,9 @@ html::-webkit-scrollbar-track {
   color: $secondary-dark;
   font-weight: 900;
   margin-top: 4rem;
+}
+.price-btn-ka:hover {
+  background-color: $light;
 }
 .last-price-btn {
   background-color: #ffd601;
@@ -1655,11 +1807,12 @@ html::-webkit-scrollbar-track {
   font-weight: 800;
   color: $dark;
 }
+
 // footer-p-socila-ka
 .footer-p-social-ka {
-  margin-top: 1rem;
   font-size: 2.7rem;
   font-weight: 900;
+  font-family: "FiraGo";
 }
 .social-icon {
   display: grid;
@@ -1951,6 +2104,9 @@ html::-webkit-scrollbar-track {
   color: $light;
   margin-bottom: 2rem;
 }
+.contactTitleKa {
+  font-size: 3.1rem !important;
+}
 .contact-flex input {
   border: 2px solid #e3e3e31b;
   border-radius: $borderSquare;
@@ -1985,7 +2141,6 @@ html::-webkit-scrollbar-track {
     --angle: 360deg;
   }
 }
-
 @property --angle {
   syntax: "<angle>";
   initial-value: 0deg;
@@ -2029,7 +2184,25 @@ textarea::-webkit-scrollbar-thumb {
   background-color: $primary;
   border-radius: $borderSquare;
 }
-.contact-form-btn {
+.contact-form-btn-en {
+  font-family: "kanit", sans-serif;
+  background: $primary;
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: $dark;
+  justify-content: center;
+  display: flex;
+  margin-top: 1.6rem;
+  padding: 1.2rem 2rem;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  border-radius: 16px;
+  border: 3px solid $primary;
+  transition: all 0.3s ease;
+}
+.contact-form-btn-ka {
+  font-family: "FiraGo";
   background: $primary;
   font-weight: 800;
   font-size: 1.4rem;
@@ -2056,6 +2229,9 @@ textarea::-webkit-scrollbar-thumb {
   .contact-sign-right h3 {
     font-size: 3.5rem;
   }
+  .contactTitleKa {
+    font-size: 2.3rem !important;
+  }
   .contact-container-top {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   }
@@ -2063,7 +2239,7 @@ textarea::-webkit-scrollbar-thumb {
 @media (max-width: 1063.33px) {
   .contact-main-image {
     width: 100%;
-    border-radius: 16px 16px 0 0;
+    border-radius: 16px 0 0 16px;
   }
   .contact-sign-right {
     border-radius: 0 0 16px 16px;
@@ -2083,6 +2259,9 @@ textarea::-webkit-scrollbar-thumb {
   .contact-sign {
     margin: 12rem 0;
   }
+  .contact-sign-right h3 {
+    margin-top: 3rem;
+  }
   .contact-sign-right {
     padding: 0 2rem;
   }
@@ -2097,6 +2276,9 @@ textarea::-webkit-scrollbar-thumb {
   }
   .contact-title {
     font-size: 2.5rem;
+  }
+  .contactTitleKa {
+    font-size: 1.7rem !important;
   }
 }
 @media (max-width: 360px) {
@@ -2142,28 +2324,17 @@ textarea::-webkit-scrollbar-thumb {
 // start news
 .news-top {
   width: 100%;
-  height: 50vh;
   position: relative;
-  background-color: #111111;
 }
 .news-flex-box {
+  position: relative;
   background: #0000003b;
   border-radius: 16px;
+  transition: all 0.2s ease;
   padding: 2rem;
 }
 .news-flex {
-  margin: 11rem 0;
-}
-.news-wrap {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 4rem;
-  color: $light;
-  font-weight: 800;
-  font-style: italic;
-  margin-top: 1rem;
+  margin: 8rem 0;
 }
 .news-block {
   width: 1.4rem;
@@ -2172,6 +2343,10 @@ textarea::-webkit-scrollbar-thumb {
   border-radius: 50px;
   margin-right: 2rem;
   background-color: $primary;
+}
+.title-parent {
+  display: flex;
+  align-items: center;
 }
 .news-title {
   display: flex;
@@ -2182,6 +2357,29 @@ textarea::-webkit-scrollbar-thumb {
   text-transform: uppercase;
   font-style: italic;
   margin-top: 2rem;
+}
+.blog-top-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 93%;
+  margin: 0 auto;
+  margin-top: 8rem;
+}
+.blog-main-title {
+  background: #e2bf04;
+  border-radius: 16px;
+  padding: 1.3rem 2rem;
+  width: 25%;
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+.blog-line {
+  width: 100%;
+  background: #e3e3e324;
+  height: 1px;
+  margin-left: 2rem;
 }
 .news-flex-top {
   max-width: 93%;
@@ -2201,31 +2399,74 @@ textarea::-webkit-scrollbar-thumb {
 .news-main-png {
   transition: all 0.4s ease;
   background: linear-gradient($dark, $dark) padding-box,
-    linear-gradient(to bottom, $primary, $primary, $dark, $dark) border-box;
+    linear-gradient(to bottom, #e2bf04, #e2bf04, $dark, $dark) border-box;
   border: 4px solid transparent;
   border-radius: $borderSquare;
   overflow: hidden;
   position: relative;
 }
 .flex-main-title {
-  font-size: 1.8rem;
-  color: #e3e3e3f1;
+  font-size: 1.4rem;
+  color: rgba(227, 227, 227, 0.9450980392);
   font-weight: 800;
   margin: 2rem 0rem;
   text-transform: uppercase;
-  line-height: 1;
+  line-height: 1.4;
 }
 .news-date {
   color: $dark;
-  background: $primary;
+  background: #e2bf04;
   position: absolute;
   bottom: 2.5%;
   border-radius: 0 $borderSquare 0 $borderSquare;
-  padding: 1rem 2rem;
+  padding: 1rem 1.8rem;
   font-weight: 800;
   text-transform: uppercase;
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
+@media (max-width: 992px) {
+  .blog-top-content {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .blog-line {
+    margin-left: 0 !important;
+  }
+  .blog-main-title {
+    margin-top: 4rem;
+    width: 53%;
+    text-align: center;
+  }
+}
+// search-bar
+.search-bar-top {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.search-bar {
+  padding: 1rem;
+  border-radius: 0px 10px;
+  color: $light;
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+.search-box {
+  padding: 1rem;
+  cursor: pointer;
+}
+.search-clicked {
+  background-color: #e2bf04;
+  cursor: pointer;
+  color: $dark;
+  border-radius: 10px;
+}
+.search-text {
+  margin: 1rem;
+  cursor: pointer;
+}
+// end search-bar
 // start post-page
 .blog-post-flex {
   display: flex;
@@ -2266,6 +2507,14 @@ textarea::-webkit-scrollbar-thumb {
   font-size: 1.4rem;
   font-weight: 300;
   line-height: 1.5;
+}
+.blog-post-title,
+.blog-post-text,
+.post-info-text {
+  font-family: "FiraGo";
+}
+.post-info-text {
+  font-feature-settings: "c2sc", "smcp";
 }
 .arrow-post {
   position: relative;
@@ -2313,6 +2562,16 @@ textarea::-webkit-scrollbar-thumb {
   .post-info-text {
     padding: 0 1rem;
   }
+  .news-flex-box {
+    padding: 1rem;
+  }
+  .flex-main-title {
+    font-size: 1.2rem;
+  }
+  .news-date {
+    bottom: 3.5%;
+    padding: 0.8rem 1.8rem;
+  }
   .news-block {
     width: 1.2rem;
     height: 1.2rem;
@@ -2340,6 +2599,14 @@ textarea::-webkit-scrollbar-thumb {
     margin-top: 3rem;
   }
 }
+@media (max-width: 800px) {
+  .blog-post-title {
+    font-size: 1.5rem;
+  }
+  .blog-post-text {
+    font-size: 1.1rem;
+  }
+}
 @media (max-height: 415px) {
   .news-top {
     height: 80vh;
@@ -2349,6 +2616,9 @@ textarea::-webkit-scrollbar-thumb {
   .news-flex-top {
     grid-template-columns: repeat(auto-fit, minmax(257px, 1fr));
   }
+  .pilates-title-ka {
+    margin-top: 3rem;
+  }
   .blog-post-title {
     font-size: 2rem;
   }
@@ -2357,11 +2627,9 @@ textarea::-webkit-scrollbar-thumb {
   }
   .news-date {
     color: #191919;
-    background: #bbdc00;
     position: absolute;
     bottom: 5%;
     border-radius: 0 16px 0 16px;
-    padding: 1rem 2rem;
     font-weight: 800;
     text-transform: uppercase;
     font-size: 1rem;
@@ -2426,6 +2694,7 @@ textarea::-webkit-scrollbar-thumb {
   position: relative;
 }
 .trial-flex-card input {
+  position: relative;
   background: transparent;
   border: 1px solid #a5a5a5;
   border-radius: 16px;
@@ -2529,11 +2798,12 @@ select {
 .user-icon {
   position: absolute;
   bottom: 33%;
+  background-color: $dark;
   left: 42%;
 }
-.react-datepicker-wrapper {
-  width: 100%;
-  cursor: default;
+
+.date-text {
+  color: white;
 }
 .calendar-flex {
   display: flex;
@@ -2545,60 +2815,6 @@ select {
   right: 3.4%;
   z-index: -1;
 }
-.react-datepicker {
-  z-index: 11111 !important;
-  width: 37rem !important;
-  border-radius: $borderSquare !important;
-  background: $dark !important;
-  border: none !important;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset !important;
-}
-.react-datepicker__day--selected {
-  background-color: $primary !important;
-  color: $dark !important;
-}
-.react-datepicker__day {
-  transition: all 0.2s ease;
-  border: 1px solid #2b2b2b70 !important;
-}
-.react-datepicker__day:hover {
-  background-color: #e2bf04 !important;
-  border-radius: 10px !important;
-  color: $dark !important;
-}
-.react-datepicker__header {
-  background-color: #e2bf04 !important;
-}
-.react-datepicker-week {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-}
-.react-datepicker__month-container {
-  font-family: "Kanit", sans-serif !important;
-}
-.react-datepicker__current-month {
-  position: relative !important;
-  font-size: 2.3rem !important;
-}
-.react-datepicker__triangle {
-  display: none !important;
-}
-.react-datepicker__month-container {
-  width: 37rem !important;
-}
-.react-datepicker__header {
-  padding: 1rem !important;
-  border: none !important;
-}
-.react-datepicker__navigation-icon--next {
-  color: $dark !important;
-}
-.react-datepicker-popper {
-  position: fixed !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-}
 .calendar-icon-wrapper {
   display: none;
 }
@@ -2609,68 +2825,6 @@ select {
   right: 5% !important;
   z-index: 11111111 !important;
   cursor: pointer;
-}
-.react-datepicker__navigation--next {
-  background: #000 !important;
-  border-radius: $borderRoundRadius !important;
-  position: absolute !important;
-  right: 19px !important;
-  height: 33px !important;
-  width: 33px !important;
-  top: 18px !important;
-}
-.react-datepicker__navigation--previous {
-  background: #000 !important;
-  border-radius: 50px !important;
-  position: absolute !important;
-  left: 19px !important;
-  height: 33px !important;
-  width: 33px !important;
-  top: 19px !important;
-}
-.react-datepicker__navigation-icon--previous {
-  right: 1px !important;
-  top: 4px !important;
-}
-.react-datepicker__day-name {
-  margin-top: 1.5rem !important;
-  width: 4.3rem !important;
-  font-size: 1.1rem !important;
-  font-weight: 700 !important;
-  background: #ffffff55 !important;
-  border: 2px solid #000000c5 !important;
-  border-radius: $borderRoundRadius !important;
-  color: $dark !important;
-  line-height: 2rem !important;
-  height: 3.5vh !important;
-  margin: 0.4rem !important;
-}
-.react-datepicker__week {
-  color: #fff !important;
-  margin: 1rem !important;
-}
-.react-datepicker__day--keyboard-selected {
-  background-color: #e2bf04 !important;
-}
-.react-datepicker__day {
-  color: #fff !important;
-  font-weight: 600 !important;
-  font-size: 1.1rem !important;
-  padding: 0.4rem 1.6rem !important;
-  border-radius: 10px !important;
-  width: 4rem !important;
-  margin: 0.3rem !important;
-}
-.react-datepicker__day:hover {
-  color: $dark !important;
-}
-.react-datepicker__day-names {
-  margin-left: -4px !important;
-  margin-top: 1.7rem !important ;
-}
-.react-datepicker__navigation-icon--next {
-  left: 1px !important;
-  top: 3px !important;
 }
 .datepicker-placeholder {
   width: 100%;
@@ -2696,7 +2850,7 @@ select {
 }
 .name-error {
   position: absolute;
-  top: -47%;
+  top: -49%;
   left: 2%;
   z-index: 100;
   color: #fff;
@@ -2706,7 +2860,7 @@ select {
 }
 .number-error {
   position: absolute;
-  top: -47%;
+  top: -49%;
   right: 2%;
   z-index: 100;
   color: #fff;
@@ -2721,13 +2875,17 @@ select {
   z-index: 100;
   color: #fff;
   background-color: #5d0dde;
-  padding: 1.6rem 1.65rem;
+  padding: 1.45rem 1.65rem;
   border-radius: 16px 16px 16px 0px;
 }
 .name-error,
 .number-error,
 .date-error {
   max-height: 4.5rem;
+}
+.btn-trial-ka,
+.btn-total-ka {
+  font-family: "FiraGo";
 }
 .trial-btn-p {
   padding: 1.65rem;
@@ -2743,6 +2901,7 @@ select {
 }
 .phone-svg {
   position: absolute;
+  background-color: $dark;
   width: 2rem;
   right: 3.5%;
   top: 28%;
@@ -2767,11 +2926,17 @@ select {
   .trial-btn {
     padding: 1rem 2rem;
   }
+  .trial-btn-1 {
+    padding: 1.1rem 2rem;
+  }
   .user-icon {
     left: 44%;
   }
+  .datepicker-p {
+    font-size: 0.85rem;
+  }
   .date-error {
-    padding: 1.2rem 0.9rem;
+    padding: 1.15rem 0.9rem;
   }
   .name-error,
   .number-error {
@@ -2787,6 +2952,9 @@ select {
   .tiral-left {
     margin-bottom: 5rem;
   }
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    padding: 1rem 28rem;
+  }
   .trial-top {
     max-height: 160vh !important;
   }
@@ -2796,64 +2964,48 @@ select {
     display: flex;
     flex-direction: column;
   }
+  .nav-right-arrow-svg-ka {
+    display: none;
+  }
+  .calendar-svg {
+    width: 23px;
+  }
   .user-icon {
-    left: 39%;
+    left: 44%;
   }
   .trial-left {
     margin-top: 19rem;
   }
   .trial-title {
-    font-size: 2.5rem !important;
-  }
-  .react-datepicker {
-    width: 23rem !important;
-    margin-top: 5rem !important;
+    font-size: 2.5rem;
   }
   .trial-flex-card input {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+  }
+  .phone-svg {
+    width: 1.6rem;
+    right: 3.5%;
+    top: 24%;
   }
   .number-error,
   .name-error {
     top: -58%;
     padding: 0.5rem 0.9rem;
   }
-  .react-datepicker__month-container {
-    width: 23rem !important;
-  }
-  .react-datepicker__week {
-    display: grid !important;
-    max-width: 100% !important;
-    grid-template-columns: repeat(7, 1fr) !important;
-  }
-  .react-datepicker__day {
-    padding: 0.4rem 0.5rem !important;
-    font-size: 1rem !important;
-    width: 2.3rem !important;
-  }
-  .react-datepicker__day-names {
-    display: flex !important;
-    text-align: center !important;
-  }
-  .react-datepicker__day-name {
-    height: 4.5vh !important;
-  }
   .trial-btn-container {
     margin: 2rem 0 7rem 0;
     display: flex;
     flex-direction: column;
   }
-  .react-datepicker__current-month {
-    font-size: 1.9rem !important;
+}
+@media (max-width: 700px) {
+  .user-icon {
+    left: 38%;
   }
 }
-@media (min-height: 895px) {
-  .react-datepicker__day-name {
-    height: 4.5vh !important;
-  }
-}
-@media (max-height: 700px) {
-  .react-datepicker__day-name {
-    height: 5.5vh !important;
+@media (max-width: 290px) {
+  .trial-title {
+    font-size: 2rem !important;
   }
 }
 @media (max-width: 415px) {
@@ -2866,53 +3018,67 @@ select {
   .trial-flex-card input {
     padding: 1rem 1rem;
   }
+  .datepicker-placeholder input {
+    padding: 1.3rem 0;
+  }
+  .datepicker-p {
+    top: 45%;
+    font-size: 0.85rem;
+  }
+  .user-icon {
+    bottom: 29%;
+  }
   .phone-svg {
     width: 1.5rem;
     right: 2.5%;
-    top: 39%;
+    top: 36%;
   }
   .name-error,
   .number-error {
-    font-size: 0.85rem;
+    font-size: 0.65rem;
     border-radius: $borderSquare;
   }
   .trial-flex-card input {
     margin-top: 0.5rem;
   }
   .name-error {
-    top: -52%;
+    top: -33%;
     left: 0%;
+  }
+  .number-error {
+    top: -33%;
   }
   .date-error {
     top: 14%;
-  }
-  .number-error {
-    top: -52%;
+    padding: 1.45rem 0.9rem;
+    font-size: 0.65rem;
   }
   .calendar-icon {
     width: 1.5rem;
   }
 }
-@media (max-width: 310px) {
-  .react-datepicker__week {
-    display: grid !important;
-    max-width: 100% !important;
-    grid-template-columns: repeat(7, 1fr) !important;
+@media (max-width: 321px) {
+  .number-error,
+  .name-error {
+    padding: 0.5rem 0.2rem;
   }
+}
+@media (max-width: 310px) {
   .name-error,
   .number-error {
-    font-size: 0.95rem;
+    font-size: 0.65rem;
   }
   .name-error {
     position: absolute;
-    top: 6%;
-    padding: 1.25rem 0.9rem;
-    left: 39.6%;
+    top: 8%;
+    padding: 1.2rem 0.9rem;
+    left: 37%;
+
     border-radius: 16px 16px 16px 0;
   }
   .datepicker-p {
     top: 42%;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
   }
   .trial-btn-container {
     margin-bottom: 17rem;
@@ -2925,7 +3091,7 @@ select {
     border-radius: 16px 16px 16px 0;
   }
   .date-error {
-    font-size: 0.85rem;
+    font-size: 0.6rem;
   }
   #username-input {
     margin-bottom: 0rem;
@@ -2951,35 +3117,6 @@ select {
   .trial-flex-card input {
     padding: 1rem 0.5rem;
   }
-  .react-datepicker__day {
-    padding: 0.4rem 0.1rem !important;
-    font-size: 0.9rem !important;
-    width: 1.7rem !important;
-  }
-  .react-datepicker__current-month {
-    font-size: 1.7rem !important;
-  }
-  .react-datepicker {
-    margin-top: 8rem !important;
-  }
-  .react-datepicker__navigation--next {
-    right: 52px !important;
-    height: 25px !important;
-    width: 26px !important;
-    top: 18px !important;
-  }
-  .react-datepicker__navigation--previous {
-    height: 25px !important;
-    width: 26px !important;
-    left: 50px !important;
-  }
-  .react-datepicker__day-names {
-    max-width: 85% !important;
-    margin-left: 25px !important;
-  }
-  .react-datepicker__month {
-    margin: 2.9rem !important;
-  }
 }
 @media (max-width: 800px) {
   .trial-right {
@@ -2994,33 +3131,11 @@ select {
     margin-top: 4rem;
   }
 }
-@media (max-height: 415px) {
-  .react-datepicker__day-name {
-    height: 9.5vh !important;
-  }
-  .react-datepicker__month-container {
-    margin-top: -5rem !important;
-  }
-  .react-datepicker__day {
-    padding: 0rem 0.5rem !important;
-  }
-  .react-datepicker__day-names {
-    margin-top: 0.7rem !important;
-  }
-  .react-datepicker__navigation--next {
-    top: -64px !important;
-  }
-  .react-datepicker__navigation--previous {
-    top: -64px !important;
-  }
-}
+
 @media (max-height: 676px) {
   .trial-top {
     max-height: 126vh;
     margin-bottom: 14rem;
-  }
-  .react-datepicker__month-container {
-    width: 23rem !important;
   }
 }
 @media (max-height: 415px) {

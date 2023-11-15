@@ -12,3 +12,4 @@ export { CalendarCancel } from "./CalendarCancel";
 export { Phone } from "./Phone";
 export { Globe } from "./Globe";
 export { ArrowLeft } from "./ArrowLeft";
+export { MessengerChat } from "./MessengerChat";

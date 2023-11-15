@@ -38,7 +38,7 @@ export const Pricing = () => {
           </div>
           <Link
             smooth
-            to="/start-trial#"
+            to="/starttrial#"
             className={langs[language].home.pricing.linkClassName}
           >
             {langs[language].home.pricing.link}
@@ -66,7 +66,7 @@ export const Pricing = () => {
           </div>
           <Link
             smooth
-            to="/start-trial#"
+            to="/starttrial#"
             className={langs[language].home.pricing.linkClassName}
           >
             {langs[language].home.pricing.link}
@@ -106,7 +106,7 @@ export const Pricing = () => {
           </div>
           <Link
             smooth
-            to="/start-trial#"
+            to="/starttrial#"
             className={
               langs[language].home.pricing.linkClassName +
               langs[language].home.pricing.lastLinkClassName

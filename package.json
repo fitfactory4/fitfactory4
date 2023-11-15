@@ -1,5 +1,6 @@
 {
   "name": "fitfactory4",
+  "homepage": "http://fitfactoryofficial.com.ge/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -20,6 +21,7 @@
     "react": "^18.2.0",
     "react-datepicker": "^4.21.0",
     "react-dom": "^18.2.0",
+    "react-facebook": "^9.0.12",
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.47.0",
     "react-router-dom": "^6.17.0",

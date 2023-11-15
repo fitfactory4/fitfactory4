@@ -6,20 +6,26 @@ import { ScrollArrow } from "../globalComponents";
 import { LanguageContext } from "../services";
 import { useContext, useEffect } from "react";
 
-export const Contact = () => {
+export default function Contact() {
   const { langs, language } = useContext(LanguageContext);
 
   useEffect(() => {
     const body = document.getElementById("body");
     const logo = document.querySelector(".logo");
+    const globe = document.querySelector(".globe-svg");
+    globe.style.display = "block";
     if (language === "en") {
       logo.style.fontFamily = "Kanit, sans-serif";
       body.style.fontFamily = "Kanit, sans-serif";
     } else {
-      body.style.fontFamily = "Contractica R";
+      body.style.fontFamily = "FiraGo";
       body.style.fontFeatureSettings = `"case"`;
       logo.style.fontFamily = "Kanit, sans-serif";
     }
+    const header = document.getElementById("main-header");
+    const footer = document.getElementById("main-footer");
+    header.style.display = "block";
+    footer.style.display = "block";
   });
 
   return (
@@ -82,7 +88,9 @@ export const Contact = () => {
             />
           </div>
           <div className="contact-sign-right">
-            <h3>{langs[language].contact.form.h3}:</h3>
+            <h3 className={langs[language].contact.form.h3className}>
+              {langs[language].contact.form.h3}:
+            </h3>
             <form
               action="https://formsubmit.co/00a206a35d4e3ef32ca5ec473880300d"
               method="POST"
@@ -116,7 +124,10 @@ export const Contact = () => {
                 required
                 maxLength={200}
               ></textarea>
-              <button type="submit" className="contact-form-btn">
+              <button
+                type="submit"
+                className={langs[language].contact.form.btnClassName}
+              >
                 {langs[language].contact.form.btn}
               </button>
             </form>
@@ -126,4 +137,4 @@ export const Contact = () => {
       <ScrollArrow />
     </section>
   );
-};
+}

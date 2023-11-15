@@ -1,5 +1,5 @@
 // Pre-render the app into static HTML.
-// run `yarn generate` and then `dist/static` can be served as a static site.
+// run yarn generate and then dist/static can be served as a static site.
 
 import fs from "node:fs";
 import path from "node:path";
@@ -16,7 +16,11 @@ const routesToPrerender = fs
   .readdirSync(toAbsolute("src/pages"))
   .map((file) => {
     const name = file.replace(/\.jsx$/, "").toLowerCase();
-    return name === "home" ? `/` : `/${name}`;
+    if (name.includes("errorpage")) {
+      return "*";
+    } else {
+      return name === "home" ? `/` : `/${name}`;
+    }
   });
 
 (async () => {
@@ -27,7 +31,13 @@ const routesToPrerender = fs
 
     const html = template.replace(`<!--app-html-->`, appHtml);
 
-    const filePath = `dist/static${url === "/" ? "/index" : url}.html`;
+    if (url === "*") {
+      var filePath = "dist/static/errorpage.html";
+    } else {
+      var filePath = `dist/static${
+        url === "/" ? "/index" : url.replace("/blogs", "")
+      }.html`;
+    }
     fs.writeFileSync(toAbsolute(filePath), html);
     console.log("pre-rendered:", filePath);
   }

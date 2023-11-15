@@ -1,5 +1,3 @@
-import { blogList, blogListEn } from "./config";
-
 export const langs = {
   ka: {
     home: {
@@ -123,7 +121,6 @@ export const langs = {
     },
     blogs: {
       navLinkTitle: "ბლოგები",
-      blogLang: blogList,
     },
     contact: {
       navLinkTitle: "კონტაქტი",
@@ -132,7 +129,9 @@ export const langs = {
       h2third: "დაგვირეკე",
       form: {
         h3: "გამოგვიგზავნე შეტყობინება",
+        h3className: "contactTitleKa",
         btn: "გაგზავნა",
+        btnClassName: "contact-form-btn-ka",
       },
     },
     startTrial: {
@@ -144,7 +143,9 @@ export const langs = {
       error2: "ნომერი აუცილებელია",
       dateError: "დაწყების თარიღი აუცილებელია",
       datePlaceHolder: "* დაწყების თარიღი",
+      btnClassName: "btn-trial-ka",
       btn: "გაგზავნა",
+      totalClassName: "btn-total-ka",
       total: "სულ:",
       select1: {
         option1: "გთხოვთ აირჩიეთ ვარიანტი",
@@ -297,7 +298,6 @@ export const langs = {
     },
     blogs: {
       navLinkTitle: "Blogs",
-      blogLang: blogListEn,
     },
     contact: {
       navLinkTitle: "CONTACT",
@@ -306,7 +306,9 @@ export const langs = {
       h2third: "CALL US",
       form: {
         h3: "SEND US A MESSAGE",
+        h3className: "contactTitleEn",
         btn: "Send",
+        btnClassName: "contact-form-btn-en",
       },
     },
     startTrial: {
@@ -319,7 +321,9 @@ export const langs = {
       dateError: "Start Date is Required",
       datePlaceHolder: "* Start Date",
       btn: "SUBMIT",
+      btnClassName: "btn-trial-en",
       total: "TOTAL ",
+      totalClassName: "btn-total-en",
       select1: {
         option1: "Please Select an Option",
         option2: "No Trainer",

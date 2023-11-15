@@ -7,17 +7,19 @@ import {
   CalendarCancel,
   Phone,
 } from "../globalComponents";
-import Datepicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState, useEffect, useContext } from "react";
 import { LanguageContext } from "../services";
 
-export const StartTrial = () => {
+export default function StartTrial() {
   const { langs, language } = useContext(LanguageContext);
 
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [date, setDate] = useState("");
   const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [isYogaTrue, setIsYogaTrue] = useState(false);
+  const [isBoxTrue, setIsBoxTrue] = useState(false);
+  const [isFitnessTrue, setIsFitnessTrue] = useState(false);
 
   const [submit, setSubmit] = useState(false);
   const [isPlaceHolderActive, setIsPlaceHolderActive] = useState(true);
@@ -29,8 +31,6 @@ export const StartTrial = () => {
   const [dateError, setDateError] = useState(false);
   const [nameRequiredError, setNameRequiredError] = useState(false);
   const [numberRequiredError, setNumberRequiredError] = useState(false);
-
-  const [isCalendarActive, setIsCalendarActive] = useState(false);
 
   const selectOptions = {
     traners: [
@@ -72,26 +72,12 @@ export const StartTrial = () => {
     ],
   };
 
-  const handleCalendarOpen = () => {
-    const openCalendar = document.querySelector(".react-datepicker-popper");
-    openCalendar.style.width = "100%";
-    openCalendar.style.height = "100vh";
-    openCalendar.style.backgroundColor = "#000000b7";
-    openCalendar.style.display = "flex";
-    openCalendar.style.justifyContent = "center";
-    openCalendar.style.alignItems = "center";
-    openCalendar.style.zIndex = "2000000";
-    setIsCalendarActive(true);
+  const showYoga = (yoga) => {
+    setIsYogaTrue(!yoga);
   };
 
-  const handleCalendarClose = () => {
-    setIsCalendarActive(false);
-  };
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-    setDateError(false);
-    if ((fullName !== "") & (phoneNumber !== null)) {
+  const handleDateChange = () => {
+    if ((phoneNumber !== "") & (fullName !== "")) {
       setSubmit(true);
     }
   };
@@ -99,7 +85,7 @@ export const StartTrial = () => {
   const handleUserNameChange = (name) => {
     setFullName(name.target.value);
     setNameRequiredError(false);
-    if ((phoneNumber !== "") & (selectedDate !== null)) {
+    if ((phoneNumber !== "") & (date !== "")) {
       setSubmit(true);
     }
   };
@@ -107,40 +93,36 @@ export const StartTrial = () => {
   const handlePhoneNumberChange = (number) => {
     setPhoneNumber(number.target.value);
     setNumberRequiredError(false);
-    if ((fullName !== "") & (selectedDate !== null)) {
+    if ((fullName !== "") & (date !== "")) {
       setSubmit(true);
     }
   };
 
   const onClick = () => {
-    selectedDate === null ? setDateError(true) : setDateError(false);
+    date === "" ? setDateError(true) : setDateError(false);
     fullName === "" ? setNameRequiredError(true) : setNameRequiredError(false);
     phoneNumber === ""
       ? setNumberRequiredError(true)
       : setNumberRequiredError(false);
   };
 
-  const setPlaceHolder = () => {
-    setIsPlaceHolderActive(false);
-  };
-
   useEffect(() => {
     const body = document.getElementById("body");
     const logo = document.querySelector(".logo");
+    const globe = document.querySelector(".globe-svg");
+    globe.style.display = "block";
     if (language === "en") {
       logo.style.fontFamily = "Kanit, sans-serif";
       body.style.fontFamily = "Kanit, sans-serif";
     } else {
-      body.style.fontFamily = "Contractica R";
+      body.style.fontFamily = "FiraGo";
       body.style.fontFeatureSettings = `"case"`;
       logo.style.fontFamily = "Kanit, sans-serif";
     }
-
-    var dateDay = document.querySelector(".react-datepicker__day");
-
-    if (dateDay !== null) {
-      dateDay.onClick = setPlaceHolder(false);
-    }
+    const header = document.getElementById("main-header");
+    const footer = document.getElementById("main-footer");
+    header.style.display = "block";
+    footer.style.display = "block";
 
     setTotalPrice(Number(trainerPrice) + Number(trialPrice));
   });
@@ -161,7 +143,6 @@ export const StartTrial = () => {
 
   return (
     <main id="start-trial" className="trial">
-      <CalendarCancel isActive={isCalendarActive} />
       <div className="trial-top">
         <div className="trial-left">
           <div className="front-trial-text">
@@ -215,29 +196,30 @@ export const StartTrial = () => {
                 )}
               </div>
               <div className="trial-flex-card trial-flex-card-2">
-                <label htmlFor="datepicker" className="datepicker-placeholder">
-                  {isPlaceHolderActive && (
+                <div className="datepicker-placeholder">
+                  {isPlaceHolderActive & (date === "") ? (
                     <p className="datepicker-p">
                       {langs[language].startTrial.datePlaceHolder}
                     </p>
+                  ) : (
+                    ""
                   )}
-                  <Datepicker
-                    selected={selectedDate}
-                    onChange={handleDateChange}
-                    onCalendarOpen={handleCalendarOpen}
-                    onCalendarClose={handleCalendarClose}
-                    id="username-input"
-                    className="calendar-flex"
-                    name="Start Date"
-                  />
-                  <span className="calendar-icon">
-                    <Calendar />
-                  </span>
-                </label>
-                {dateError && (
+                  <div onChange={handleDateChange}>
+                    <input
+                      name="Start Date"
+                      type="date"
+                      onChange={(e) => setDate(e.target.value)}
+                    />
+                    <p className="date-text">{date !== "" && date}</p>
+                  </div>
+                  <Calendar />
+                </div>
+                {(date === "") & dateError ? (
                   <div className="date-error">
                     {langs[language].startTrial.dateError}
                   </div>
+                ) : (
+                  ""
                 )}
               </div>
               <div className="trial-container">
@@ -249,14 +231,27 @@ export const StartTrial = () => {
                     name="Trainer"
                     required
                   >
-                    <option value="">
+                    {/* <option value="">
                       {langs[language].startTrial.select1.option1}
                     </option>
                     {selectOptions.traners.map((trainer, index) => (
                       <option key={index} value={trainer.value + trainer.price}>
                         {trainer.value + trainer.price}
                       </option>
-                    ))}
+                    ))} */}
+                    <option value="">airchiet treneri</option>
+                    <optgroup label="yoga">
+                      <option value="giorgi(30$)">giorgi(30$)</option>
+                      <option value="ana(50$)">ana(50$)</option>
+                    </optgroup>
+                    <optgroup label="box">
+                      <option value="giorgi(30$)">giorgi(30$)</option>
+                      <option value="luka(20$)">luka(20$)</option>
+                    </optgroup>
+                    <optgroup label="fitness">
+                      <option value="giorgi(30$)">giorgi(30$)</option>
+                      <option value="ana(40$)">ana(40$)</option>
+                    </optgroup>
                   </select>
                   <SelectIcon />
                 </div>
@@ -284,18 +279,24 @@ export const StartTrial = () => {
                 {!submit ? (
                   <p
                     onClick={onClick}
-                    className="trial-btn trial-btn-1 trial-btn-p"
+                    className={`trial-btn trial-btn-1 trial-btn-p ${langs[language].startTrial.btnClassName}`}
                   >
                     {langs[language].startTrial.btn}
                   </p>
                 ) : (
-                  <button type="submit" className="trial-btn trial-btn-1">
+                  <button
+                    type="submit"
+                    className={`trial-btn trial-btn-1 ${langs[language].startTrial.btnClassName}`}
+                  >
                     {langs[language].startTrial.btn}
                   </button>
                 )}
 
-                <a href="#" className="trial-btn trial-btn-2">
-                  {langs[language].startTrial.total} : {totalPrice} $
+                <a
+                  href="#"
+                  className={`trial-btn trial-btn-2 ${langs[language].startTrial.totalClassName}`}
+                >
+                  {langs[language].startTrial.total} {totalPrice} $
                 </a>
               </div>
             </div>
@@ -312,4 +313,4 @@ export const StartTrial = () => {
       <ScrollArrow />
     </main>
   );
-};
+}
